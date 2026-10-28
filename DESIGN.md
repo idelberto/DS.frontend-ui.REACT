@@ -229,7 +229,7 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 
 - **Shape:** reto com cantos de 0.3rem, ou pílula (`shape="pill"`), que alarga o respiro lateral.
 - **Primary:** cheio na marca, texto branco, 2.5rem de altura. Os tamanhos seguem os nomes do shadcn (`xs`, `sm`, `lg`, `icon`, `icon-sm`).
-- **Hover / Focus:** o hover escurece a cor (`brightness-90`), como os -700 do Admin One. O foco mostra um anel de 3px na cor da marca a 50%.
+- **Hover / Focus:** o hover escurece a cor (`brightness-90`), como os -700 do Admin One. O foco mostra um anel de 3px na cor cheia da marca, como o `ring-purple-500` do Admin One (a 50%, o anel ficava em 2,2:1, abaixo do AA). Sobre cor cheia, como no fechar do aviso e do toast, o anel vai na cor do texto.
 - **Variantes:** `secondary` (cinza suave), `contrast` (tinta cheia), as quatro de status, `outline` (contorno da marca, que enche no hover), `ghost` e `link`.
 
 ### Chips
@@ -248,7 +248,7 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 ### Inputs / Fields
 
 - **Style:** 3rem de altura, borda gray-700, fundo do card (no escuro, o da página), cantos de 0.3rem. O ícone, quando há, fica à esquerda em cinza de apoio.
-- **Focus:** a borda vira a marca, com o anel de 3px a 50%.
+- **Focus:** a borda vira a marca, com o anel de 3px na cor cheia.
 - **Error / Disabled:** borda e anel no vermelho, com a mensagem em 0.75rem abaixo. Desabilitado a 50% de opacidade.
 
 ### Navigation

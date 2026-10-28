@@ -90,4 +90,4 @@ Os lotes 0.4 a 0.6 seguem a ordem em que o BioStar4Life vai precisar deles: a Fa
 
 ## Decisões pendentes
 
-Nenhuma por enquanto. O Vue também carrega a Quicksand: o lote 0.2 confere onde ela é usada antes de decidir se entra no tema.
+- ❓ **Fonte (achado do lote 0.2):** o Vue carrega a Nunito e a Quicksand no `index.html`, mas nenhum CSS nem o `tailwind.config.js` as usa, e a tela sai na fonte do sistema (`docs/TOKENS.md`). A Quicksand fica fora do tema. A Nunito segue como decidido, porque o tema só usa a `--font-sans` e quem escolhe a fonte é o projeto. Se o objetivo for o visual exato do Vue, a troca é tirar o `next/font` da vitrine e do BioStar4Life e usar a fonte do sistema.

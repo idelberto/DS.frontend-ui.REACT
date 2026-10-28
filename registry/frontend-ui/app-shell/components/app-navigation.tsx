@@ -65,7 +65,10 @@ export function AppNavigation({
       {groups.map((group) => (
         <SidebarGroup key={group.id} className="py-1">
           {group.label !== null && (
-            <SidebarGroupLabel className="px-4">{group.label}</SidebarGroupLabel>
+            // O text-sidebar-foreground/70 do shadcn fica abaixo do AA sobre o menu claro.
+            <SidebarGroupLabel className="px-4 text-muted-foreground">
+              {group.label}
+            </SidebarGroupLabel>
           )}
           <SidebarGroupContent>
             <SidebarMenu className="gap-1">

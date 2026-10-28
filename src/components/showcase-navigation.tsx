@@ -2,6 +2,7 @@
 
 import {
   CalendarDays,
+  CircleDashed,
   LayoutDashboard,
   LayoutTemplate,
   Palette,
@@ -27,6 +28,7 @@ const SHOWCASE_NAVIGATION: NavigationGroup[] = [
       { id: 'dashboard', label: 'Painel', icon: LayoutDashboard, href: '/dashboard/' },
       { id: 'forms', label: 'Formulários', icon: SquarePen, href: '/forms/' },
       { id: 'ui', label: 'Interface', icon: LayoutTemplate, href: '/ui/' },
+      { id: 'states', label: 'Estados', icon: CircleDashed, href: '/states/' },
       { id: 'theme', label: 'Tema', icon: Palette, href: '/theme/' },
     ],
   },
@@ -34,7 +36,7 @@ const SHOWCASE_NAVIGATION: NavigationGroup[] = [
     id: 'records',
     label: 'Cadastros',
     items: [
-      { id: 'patients', label: 'Pacientes', icon: Users, href: null },
+      { id: 'patients', label: 'Pacientes', icon: Users, href: '/patients/' },
       { id: 'professionals', label: 'Profissionais', icon: Stethoscope, href: null },
       { id: 'procedures', label: 'Procedimentos', icon: Sparkles, href: null },
     ],

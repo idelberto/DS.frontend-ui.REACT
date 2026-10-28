@@ -81,3 +81,31 @@ test('the interface page opens the modal and shows a toast', async ({ page }) =>
   await page.getByRole('button', { name: 'Aviso de sucesso' }).click();
   await expect(page.getByText('Paciente salvo.')).toBeVisible();
 });
+
+test('the patients list selects rows and moves between pages', async ({ page, isMobile }) => {
+  await page.goto('patients/');
+
+  await expect(page.getByText('Ana Carolina Silva Santos')).toBeVisible();
+  if (isMobile) {
+    // No celular o cabeçalho some, com o "selecionar todas": cada linha vira um cartão com a caixa dela.
+    await expect(page.getByRole('columnheader', { name: 'CPF' })).toBeHidden();
+    await page.getByRole('checkbox', { name: 'Selecionar Ana Carolina Silva Santos' }).click();
+    await expect(page.getByText('1 selecionado(s)')).toBeVisible();
+  } else {
+    await page.getByRole('checkbox', { name: 'Selecionar todas as linhas' }).click();
+    await expect(page.getByText('8 selecionado(s)')).toBeVisible();
+  }
+
+  await page.getByRole('link', { name: 'Página 2' }).click();
+  await expect(page.getByText('João Pedro Carvalho')).toBeVisible();
+  await expect(page.getByText('Página 2 de 2')).toBeVisible();
+});
+
+test('the states page shows the empty and error states', async ({ page }) => {
+  await page.goto('states/');
+
+  await expect(page.getByText('Nenhum paciente ainda')).toBeVisible();
+  await expect(
+    page.getByRole('alert').filter({ hasText: 'Não foi possível carregar esta tela' }),
+  ).toContainText('2817461093');
+});

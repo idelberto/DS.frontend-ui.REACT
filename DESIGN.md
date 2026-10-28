@@ -14,8 +14,8 @@ colors:
   sidebar-text: 'oklch(0.373 0.034 259.733)'
   sidebar-border: 'oklch(0.928 0.006 264.531)'
   danger-red: 'oklch(0.577 0.245 27.325)'
-  success-emerald: 'oklch(0.596 0.145 163.225)'
-  warning-yellow: 'oklch(0.681 0.162 75.834)'
+  success-emerald: 'oklch(0.508 0.118 165.612)'
+  warning-yellow: 'oklch(0.554 0.135 66.442)'
   info-blue: 'oklch(0.546 0.245 262.881)'
   night-page: 'oklch(0.279 0.041 260.031)'
   night-card: 'oklch(0.229 0.042 264.04)'
@@ -152,7 +152,8 @@ Cinzas frios do Tailwind, uma cor de marca configurável e quatro cores de statu
 
 ### Secondary
 
-- **Status:** sucesso em emerald-600, alerta em yellow-600, perigo em red-600 e informação em blue-600, cheios com texto branco no botão, no selo, no aviso e no toast. No escuro, os -500.
+- **Status:** sucesso em emerald-700, alerta em yellow-700, perigo em red-600 e informação em blue-600, cheios com texto branco no botão, no selo, no aviso e no toast. O sucesso e o alerta estão um passo acima do Admin One (que usa os -600) para o branco passar no AA. No escuro, os -500.
+- **Texto do selo suave de status** (`--success-muted-foreground` e afins): o tom do status a 15% no fundo, com o texto no -800 do sucesso e do alerta e no -700 do perigo e da informação. No escuro, os -400.
 
 ### Neutral
 
@@ -166,6 +167,8 @@ Cinzas frios do Tailwind, uma cor de marca configurável e quatro cores de statu
 ### Named Rules
 
 **A Regra do Token Semântico.** Componente usa só token semântico (`bg-primary`, `bg-card`, `text-muted-foreground`), nunca cor crua como `bg-purple-600`. A cor do produto entra só pelo `--brand`.
+
+**A Regra do AA.** Texto passa em 4,5:1 contra o fundo real em que aparece, e a marca do projeto também, com o `--brand-foreground` (`docs/TOKENS.md`). Onde o Admin One reprova, o tom muda o mínimo necessário, e a fidelidade cede só nesse ponto.
 
 **A Regra da Cor Rara.** A marca marca ação principal e localização; o status marca o estado. Cor fora desses dois papéis não entra.
 
@@ -231,7 +234,7 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 
 ### Chips
 
-- **Style:** o `PillTag`, em pílula. `solid` cheio na cor do tom; `soft` com o fundo do tom a 15% e o texto no tom, para o status dentro da tabela.
+- **Style:** o `PillTag`, em pílula. `solid` cheio na cor do tom; `soft` com o fundo do tom a 15% e o texto num tom mais escuro (o `-muted-foreground` do tema), para o status dentro da tabela. O `soft` neutro tem o texto na tinta.
 - **Tons:** marca, sucesso, alerta, perigo, informação e neutro.
 
 ### Cards / Containers

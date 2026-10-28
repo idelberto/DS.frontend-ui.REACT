@@ -125,6 +125,10 @@
           "type": "registry:component"
         },
         {
+          "path": "registry/frontend-ui/app-shell/components/app-shell-trigger.tsx",
+          "type": "registry:component"
+        },
+        {
           "path": "registry/frontend-ui/app-shell/components/app-sidebar.tsx",
           "type": "registry:component"
         },

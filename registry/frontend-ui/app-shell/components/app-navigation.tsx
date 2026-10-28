@@ -101,11 +101,20 @@ function NavigationEntry({ item, currentPath, renderLink }: NavigationEntryProps
     return (
       <SidebarMenuItem>
         {/* Sem tooltip: o TooltipTrigger do Base UI não repassa o disabled ao botão. */}
-        <SidebarMenuButton disabled className={`${ITEM_CLASS} pr-20`}>
+        {/* O "em breve" vai no nome do botão, e o selo fica fora da árvore de acessibilidade: o
+            leitor de tela ouve "Profissionais, em breve" uma vez só. */}
+        <SidebarMenuButton
+          disabled
+          aria-label={`${item.label}, em breve`}
+          className={`${ITEM_CLASS} pr-20`}
+        >
           <Icon />
           <span>{item.label}</span>
         </SidebarMenuButton>
-        <SidebarMenuBadge className="peer-data-[size=default]/menu-button:top-3 right-2 rounded-full bg-muted px-2 font-normal text-muted-foreground">
+        <SidebarMenuBadge
+          aria-hidden="true"
+          className="peer-data-[size=default]/menu-button:top-3 right-2 rounded-full bg-muted px-2 font-normal text-sidebar-foreground"
+        >
           Em breve
         </SidebarMenuBadge>
       </SidebarMenuItem>

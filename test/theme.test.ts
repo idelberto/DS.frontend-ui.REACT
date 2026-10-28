@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
 import { describe, expect, it } from 'vitest';
 
 import registry from '../registry.json';
@@ -26,5 +29,16 @@ describe('theme item', () => {
     );
 
     expect(missingInDark).toEqual([]);
+  });
+});
+
+describe('showcase globals.css', () => {
+  it('maps every color of the theme item to a Tailwind utility, as the consumer gets', () => {
+    const globalsCss = readFileSync(join(import.meta.dirname, '../src/app/globals.css'), 'utf8');
+    const missingInGlobals = Object.entries(themeVariables().theme)
+      .map(([name, value]) => `--${name}: ${value};`)
+      .filter((declaration) => !globalsCss.includes(declaration));
+
+    expect(missingInGlobals).toEqual([]);
   });
 });

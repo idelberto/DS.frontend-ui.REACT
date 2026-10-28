@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hello-world",
+  "title": "Hello world",
+  "description": "Item de teste: confirma que o projeto instala do registry.",
+  "files": [
+    {
+      "path": "registry/frontend-ui/hello-world/components/hello-world.tsx",
+      "content": "import type { ComponentProps } from 'react';\n\nimport { cn } from '@/lib/utils';\n\nexport function HelloWorld({ className, ...props }: ComponentProps<'p'>) {\n  return (\n    <p className={cn('rounded-lg bg-card p-4 text-card-foreground', className)} {...props}>\n      Instalado pelo registry @frontend-ui.\n    </p>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

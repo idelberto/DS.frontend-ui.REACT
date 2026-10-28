@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "frontend-ui",
+  "homepage": "https://idelberto.github.io/DS.frontend-ui.REACT",
+  "items": [
+    {
+      "name": "hello-world",
+      "type": "registry:component",
+      "title": "Hello world",
+      "description": "Item de teste: confirma que o projeto instala do registry.",
+      "files": [
+        {
+          "path": "registry/frontend-ui/hello-world/components/hello-world.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

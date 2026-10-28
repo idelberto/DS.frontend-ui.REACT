@@ -319,6 +319,70 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "A tabela do Admin One no lugar do table do shadcn: linhas listradas, cartões no celular (TableCell com label), a seleção de linhas (TableSelection) e a paginação por link (TablePagination).",
+      "registryDependencies": [
+        "@frontend-ui/checkbox",
+        "@frontend-ui/button",
+        "@frontend-ui/theme"
+      ],
+      "files": [
+        {
+          "path": "registry/frontend-ui/table/ui/table.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/frontend-ui/table/components/table-selection.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/frontend-ui/table/components/table-pagination.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "loading-state",
+      "type": "registry:component",
+      "title": "Loading state",
+      "description": "O esqueleto da tela enquanto ela carrega, trazido do BioStar4Life.",
+      "registryDependencies": ["skeleton", "@frontend-ui/theme"],
+      "files": [
+        {
+          "path": "registry/frontend-ui/loading-state/components/loading-state.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "Empty state",
+      "description": "A consulta que deu certo e voltou sem linhas, trazido do BioStar4Life.",
+      "registryDependencies": ["empty", "@frontend-ui/theme"],
+      "files": [
+        {
+          "path": "registry/frontend-ui/empty-state/components/empty-state.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "error-state",
+      "type": "registry:component",
+      "title": "Error state",
+      "description": "A tela de erro, com tentar de novo e o código para o suporte, trazido do BioStar4Life.",
+      "registryDependencies": ["@frontend-ui/button", "@frontend-ui/theme"],
+      "files": [
+        {
+          "path": "registry/frontend-ui/error-state/components/error-state.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

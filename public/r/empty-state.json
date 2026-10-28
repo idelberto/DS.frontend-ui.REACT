@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "title": "Empty state",
+  "description": "A consulta que deu certo e voltou sem linhas, trazido do BioStar4Life.",
+  "registryDependencies": [
+    "empty",
+    "@frontend-ui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/frontend-ui/empty-state/components/empty-state.tsx",
+      "content": "import type { ComponentType, ReactNode } from 'react';\n\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from '@/components/ui/empty';\n\ninterface EmptyStateProps {\n  icon: ComponentType<{ className?: string }>;\n  title: string;\n  description: string;\n  children?: ReactNode;\n}\n\n// Vazio é a consulta que deu certo e voltou sem linhas. Falha de leitura nunca chega aqui: o repositório não\n// devolve lista vazia no erro, e o erro sobe até o error.tsx.\nexport function EmptyState({ icon: Icon, title, description, children }: EmptyStateProps) {\n  return (\n    <Empty className=\"rounded-2xl bg-card text-card-foreground\">\n      <EmptyHeader>\n        <EmptyMedia variant=\"icon\">\n          <Icon />\n        </EmptyMedia>\n        <EmptyTitle>{title}</EmptyTitle>\n        <EmptyDescription>{description}</EmptyDescription>\n      </EmptyHeader>\n      {children !== undefined && <EmptyContent>{children}</EmptyContent>}\n    </Empty>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

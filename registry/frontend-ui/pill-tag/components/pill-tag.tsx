@@ -17,7 +17,8 @@ const pillTagVariants = cva(
       },
       variant: {
         solid: '',
-        // Fundo claro e texto na cor: o status dentro de uma tabela.
+        // Fundo claro e texto num tom mais escuro da cor (o -muted-foreground do tema, que passa no
+        // AA): o status dentro de uma tabela.
         soft: 'border-transparent',
       },
       size: {
@@ -53,11 +54,23 @@ const pillTagVariants = cva(
         className: 'border-foreground bg-foreground text-background',
       },
       { variant: 'soft', tone: 'brand', className: 'bg-brand-muted text-brand-muted-foreground' },
-      { variant: 'soft', tone: 'success', className: 'bg-success/15 text-success' },
-      { variant: 'soft', tone: 'warning', className: 'bg-warning/15 text-warning' },
-      { variant: 'soft', tone: 'danger', className: 'bg-destructive/15 text-destructive' },
-      { variant: 'soft', tone: 'info', className: 'bg-info/15 text-info' },
-      { variant: 'soft', tone: 'neutral', className: 'bg-muted text-muted-foreground' },
+      {
+        variant: 'soft',
+        tone: 'success',
+        className: 'bg-success/15 text-success-muted-foreground',
+      },
+      {
+        variant: 'soft',
+        tone: 'warning',
+        className: 'bg-warning/15 text-warning-muted-foreground',
+      },
+      {
+        variant: 'soft',
+        tone: 'danger',
+        className: 'bg-destructive/15 text-destructive-muted-foreground',
+      },
+      { variant: 'soft', tone: 'info', className: 'bg-info/15 text-info-muted-foreground' },
+      { variant: 'soft', tone: 'neutral', className: 'bg-muted text-foreground' },
     ],
     defaultVariants: {
       tone: 'brand',

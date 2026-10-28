@@ -30,7 +30,7 @@ export function FileUpload({
       <label
         className={cn(
           buttonVariants(),
-          'cursor-pointer has-focus-visible:ring-3 has-focus-visible:ring-ring/50',
+          'cursor-pointer has-focus-visible:ring-3 has-focus-visible:ring-ring',
           fileName !== null && 'rounded-r-none',
         )}
       >

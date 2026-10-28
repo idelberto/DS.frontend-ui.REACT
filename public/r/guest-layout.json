@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "guest-layout",
+  "title": "Guest layout",
+  "description": "A tela cheia do Admin One para as páginas sem sessão (login, senha, erro): o card no centro, sobre o degradê feito da cor da marca.",
+  "registryDependencies": [
+    "@frontend-ui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/frontend-ui/guest-layout/components/guest-layout.tsx",
+      "content": "import type { ReactNode } from 'react';\n\n// O degradê do Admin One (purple-400, pink-500, red-500) refeito a partir da marca: mais clara no\n// começo e com o matiz girado no fim, para qualquer --brand. No escuro, os cinzas do tema.\nconst BRAND_GRADIENT =\n  'bg-linear-to-tr from-[oklch(from_var(--brand)_calc(l+0.15)_c_h)] via-brand to-[oklch(from_var(--brand)_l_c_calc(h+60))] dark:from-muted dark:via-sidebar dark:to-background';\n\ninterface GuestLayoutProps {\n  // O logo e o nome do produto, no topo do card.\n  brand?: ReactNode;\n  // O formulário ou a mensagem da tela.\n  children: ReactNode;\n}\n\nexport function GuestLayout({ brand, children }: GuestLayoutProps) {\n  return (\n    <main className={`flex min-h-dvh items-center justify-center py-6 ${BRAND_GRADIENT}`}>\n      <div className=\"flex w-11/12 flex-col gap-6 rounded-2xl bg-card p-6 text-card-foreground shadow-2xl sm:p-8 md:w-7/12 lg:w-6/12 xl:w-4/12\">\n        {brand}\n        {children}\n      </div>\n    </main>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

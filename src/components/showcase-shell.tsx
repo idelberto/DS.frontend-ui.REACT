@@ -40,7 +40,7 @@ function ShowcaseSidebarFooter() {
       <SidebarMenuItem>
         <SidebarMenuButton
           tooltip="Sair"
-          render={<Link href="/" />}
+          render={<Link href="/login/" />}
           className="h-11 gap-3 px-4 font-medium [&_svg]:size-[18px]"
         >
           <LogOut />

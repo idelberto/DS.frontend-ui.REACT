@@ -109,3 +109,21 @@ test('the states page shows the empty and error states', async ({ page }) => {
     page.getByRole('alert').filter({ hasText: 'Não foi possível carregar esta tela' }),
   ).toContainText('2817461093');
 });
+
+test('the login page shows the guest card and leads to the dashboard', async ({ page }) => {
+  await page.goto('login/');
+
+  await expect(page.getByRole('heading', { level: 1, name: 'Entrar' })).toBeVisible();
+  await expect(page.getByLabel('Senha')).toBeVisible();
+  await page.getByRole('link', { name: 'Entrar' }).click();
+  await expect(page.getByRole('heading', { level: 1, name: 'Resumo Geral' })).toBeVisible();
+});
+
+test('an unknown address shows the not-found page', async ({ page }) => {
+  const response = await page.goto('nao-existe/');
+
+  expect(response?.status()).toBe(404);
+  await expect(
+    page.getByRole('heading', { level: 1, name: 'Página não encontrada' }),
+  ).toBeVisible();
+});

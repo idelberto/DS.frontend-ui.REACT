@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "section-main",
+  "title": "Section main",
+  "description": "A área de conteúdo da página, com o espaçamento e a largura máxima do Admin One.",
+  "files": [
+    {
+      "path": "registry/frontend-ui/section-main/components/section-main.tsx",
+      "content": "import type { ComponentProps } from 'react';\n\nimport { cn } from '@/lib/utils';\n\nexport function SectionMain({ className, ...props }: ComponentProps<'section'>) {\n  return <section className={cn('p-6 xl:mx-auto xl:w-full xl:max-w-6xl', className)} {...props} />;\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

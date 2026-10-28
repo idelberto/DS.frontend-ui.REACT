@@ -79,6 +79,65 @@
           "sidebar-ring": "var(--brand)"
         }
       }
+    },
+    {
+      "name": "app-shell",
+      "type": "registry:block",
+      "title": "App shell",
+      "description": "Menu lateral do Admin One sobre o sidebar do shadcn (grupos, ícones, item ativo, item \"Em breve\", menu recolhido e sobreposição no celular) e a barra superior, com espaço para a marca, a unidade e o usuário.",
+      "registryDependencies": ["sidebar", "@frontend-ui/theme"],
+      "files": [
+        {
+          "path": "registry/frontend-ui/app-shell/components/app-shell.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/frontend-ui/app-shell/components/app-sidebar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/frontend-ui/app-shell/components/app-navigation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "section-main",
+      "type": "registry:component",
+      "title": "Section main",
+      "description": "A área de conteúdo da página, com o espaçamento e a largura máxima do Admin One.",
+      "files": [
+        {
+          "path": "registry/frontend-ui/section-main/components/section-main.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "section-title",
+      "type": "registry:component",
+      "title": "Section title",
+      "description": "O título da página com o ícone redondo e a ação à direita.",
+      "registryDependencies": ["@frontend-ui/theme"],
+      "files": [
+        {
+          "path": "registry/frontend-ui/section-title/components/section-title.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-bar",
+      "type": "registry:component",
+      "title": "Footer bar",
+      "description": "O rodapé com o nome, o ano e a versão.",
+      "registryDependencies": ["@frontend-ui/theme"],
+      "files": [
+        {
+          "path": "registry/frontend-ui/footer-bar/components/footer-bar.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

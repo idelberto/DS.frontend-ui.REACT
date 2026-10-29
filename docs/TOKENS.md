@@ -12,6 +12,7 @@ Componente novo usa o token, e não a classe da coluna da esquerda. Os tokens de
 | Texto da página | preto (sem classe) | `text-slate-100` | `foreground` (no claro, `gray-900`) |
 | Card (`CardBox`) | `bg-white` | `bg-slate-900/70` (sobre `slate-800`) | `card` (no escuro, a mistura já calculada) |
 | Modal (`CardBox` com `isModal`) | `bg-white` | `bg-slate-900` | `popover` |
+| Fundo atrás do modal (`OverlayLayer`) | degradê `from-gray-700 via-gray-900 to-gray-700`, `opacity-90` | igual | `overlay` (o `gray-900`; o modal refaz o degradê com a transparência, 80% nas pontas e 90% no meio) |
 | Botão de cor da marca (`purple` em `getButtonColor`) | `bg-purple-600` | `bg-purple-500` | `primary` = `--brand` (o mesmo nos dois modos) |
 | Botão `whiteDark` (engrenagem do título) | `bg-white` | `bg-slate-900` | `secondary` (no claro, `gray-100`, para aparecer sobre o card) |
 | Botão `lightDark`, hover da linha da tabela | `bg-gray-100` | `bg-slate-700` | `accent` e `muted` |

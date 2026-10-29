@@ -231,6 +231,7 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 - **Primary:** cheio na marca, texto branco, 2.5rem de altura. Os tamanhos seguem os nomes do shadcn (`xs`, `sm`, `lg`, `icon`, `icon-sm`).
 - **Hover / Focus:** o hover escurece a cor (`brightness-90`), como os -700 do Admin One. O foco mostra um anel de 3px na cor cheia da marca, como o `ring-purple-500` do Admin One (a 50%, o anel ficava em 2,2:1, abaixo do AA). Sobre cor cheia, como no fechar do aviso e do toast, o anel vai na cor do texto.
 - **Variantes:** `secondary` (cinza suave), `contrast` (tinta cheia), as quatro de status, `outline` (contorno da marca, que enche no hover), `ghost` e `link`.
+- **Grupo de ações:** à direita, com o principal por último, na ponta, e a ordem no código igual à da tela: `Cancelar` e depois `Salvar`. O rodapé do `card-box` e do `modal` já alinha assim. O Admin One alinha à esquerda, com o principal primeiro; o estado vazio, o de erro e a página não encontrada seguem no centro.
 
 ### Chips
 
@@ -276,6 +277,7 @@ Linhas listradas e bordas entre as colunas no desktop, com o hover em cinza suav
 - **Do** manter o card plano e deixar a sombra para o que flutua.
 - **Do** passar o rótulo (`label`) em toda `TableCell`, para o cartão do celular.
 - **Do** estilizar link como botão com o `buttonVariants`, e não com o `Button` e o `render`.
+- **Do** alinhar os botões de ação à direita, com o principal por último, na ponta.
 - **Do** parar a transição e o pulso com o `prefers-reduced-motion` (`motion-reduce:transition-none`, `motion-reduce:animate-none`).
 
 ### Don't:

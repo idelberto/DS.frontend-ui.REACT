@@ -21,6 +21,7 @@ Design system dos meus projetos React: o visual do Admin One, o template do Vue 
 | Indicadores do painel | Um card só, com o cabeçalho do `card-box` e uma ação para o grupo, e os indicadores lado a lado com divisória: o item `stat-group`. Desvio pedido em relação aos três cards separados (`CardBoxWidget`) do Admin One (28/10) |
 | Item ativo do menu | Numa faixa no cinza do hover (`sidebar-accent`), sem barra: o ícone e o texto na marca, o texto em negrito. Escolhida entre quatro variantes; a barra sem fundo do lote 0.10 marcava pouco (29/10) |
 | Unidade no menu | Na segunda linha do nome da marca, no lugar do slogan, sem fundo. O bloco cinza abaixo da marca chamava mais atenção que ela (29/10) |
+| Botões de ação | À direita, com o principal por último, na ponta: no rodapé do card e do modal, no formulário de visitante e na barra da seleção. O Admin One os põe à esquerda, com o principal primeiro: desvio pedido. Só o que é centrado (estado vazio, erro e página não encontrada) segue no centro (29/10) |
 
 No projeto que consome:
 
@@ -65,6 +66,7 @@ Um branch e um PR por lote. Ao fim de cada um, paro com a evidência e espero o 
 9. **0.9 Menu lateral:** o item ativo como no Admin One e o menu recolhido alinhado, com a marca e os ícones no centro.
 10. **0.10 Item ativo:** a barra volta para o item, e o texto fica em negrito.
 11. **0.11 Menu:** o item ativo numa faixa cinza, sem barra; a unidade na segunda linha da marca, na vitrine; e o "Sair" alinhado com os ícones do menu.
+12. **0.12 Botões à direita:** o rodapé do `card-box` e do `modal` alinha os botões à direita, com o principal por último, e a vitrine segue a mesma ordem.
 
 Os lotes 0.4 a 0.6 seguem a ordem em que o BioStar4Life vai precisar deles: a Fase 1 começa por pacientes, com formulário e lista.
 

@@ -48,6 +48,7 @@ Notas locais, fora do repositório (que é público): `../LOCAL.md`, com onde fi
 - O tema não carrega fonte: ele usa a variável `--font-sans`, e o projeto carrega a Nunito (`next/font` no Next).
 - O comportamento (teclado, foco, leitor de tela) vem do Base UI; o design system cuida da aparência e da composição. Monte sobre os primitivos do shadcn com Base UI em vez de reimplementá-los.
 - Foco é o anel de 3px na cor cheia: `focus-visible:ring-3 focus-visible:ring-ring`, nunca o `ring-ring/50` do shadcn, que fica em 2,2:1 e reprova no AA. Sobre fundo de cor cheia (aviso, toast), `focus-visible:ring-current`, na cor do texto.
+- Botões de ação ficam à direita, com o principal por último, na ponta, e a ordem no código é a da tela (`Cancelar`, depois `Salvar`). O rodapé do `card-box` e do `modal` já alinha assim. Só o que é centrado (estado vazio, erro, página não encontrada) fica no centro.
 - Transição e animação param com o `prefers-reduced-motion`: `motion-reduce:transition-none` e `motion-reduce:animate-none`.
 - Token de status cheio (`bg-destructive`, `bg-success`) é fundo, com o `-foreground` por cima. Texto ou ícone de status sobre o card usa o `-muted-foreground` (`text-destructive-muted-foreground`): no escuro, o tom que deixa o branco legível no fundo some sobre o card.
 - Um componente entra quando um projeto precisa dele, e não porque o Admin One tem.

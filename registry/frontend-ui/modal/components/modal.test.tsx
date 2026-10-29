@@ -29,4 +29,23 @@ describe('Modal', () => {
       expect(screen.queryByRole('dialog')).toBeNull();
     });
   });
+
+  it('describes the dialog with the description', async () => {
+    render(
+      <Modal
+        title="Excluir paciente?"
+        description="Ana sai da lista de pacientes."
+        trigger={<button type="button">Excluir</button>}
+      />,
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: 'Excluir' }));
+
+    expect(
+      screen.getByRole('dialog', {
+        name: 'Excluir paciente?',
+        description: 'Ana sai da lista de pacientes.',
+      }),
+    ).toBeDefined();
+  });
 });

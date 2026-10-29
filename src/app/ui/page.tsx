@@ -4,8 +4,13 @@ import {
   Info,
   LayoutTemplate,
   Plus,
+  Settings,
+  ShoppingCart,
   Trash2,
+  TrendingDown,
+  TrendingUp,
   TriangleAlert,
+  Wallet,
   X,
 } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -22,6 +27,7 @@ import { NotificationBar } from '@/registry/frontend-ui/notification-bar/compone
 import { PillTag } from '@/registry/frontend-ui/pill-tag/components/pill-tag';
 import { SectionMain } from '@/registry/frontend-ui/section-main/components/section-main';
 import { SectionTitle } from '@/registry/frontend-ui/section-title/components/section-title';
+import { StatCard } from '@/registry/frontend-ui/stat-group/components/stat-group';
 
 import { ToastDemo } from './toast-demo';
 
@@ -48,11 +54,59 @@ const TONES = [
   { tone: 'neutral', label: 'Arquivado' },
 ] as const;
 
+function SettingsButton({ label }: { label: string }) {
+  return (
+    // O ícone simples do Admin One, sem fundo em repouso.
+    <Button variant="ghost" size="icon-sm" className="text-muted-foreground" aria-label={label}>
+      <Settings />
+    </Button>
+  );
+}
+
 export default function UiPage() {
   return (
     <ShowcaseShell>
       <SectionMain>
         <SectionTitle icon={LayoutTemplate} title="Interface" />
+
+        <section className="flex flex-col gap-3">
+          <h2 className="text-2xl">Indicadores</h2>
+          {/* Dados genéricos: o padrão de indicador de qualquer painel. */}
+          <div className="grid gap-6 lg:grid-cols-3">
+            <StatCard
+              label="Vendas"
+              value="R$ 48.320"
+              icon={Wallet}
+              tone="success"
+              trend={
+                <PillTag tone="success" size="sm" icon={TrendingUp}>
+                  12%
+                </PillTag>
+              }
+              action={<SettingsButton label="Configurar vendas" />}
+            />
+            <StatCard
+              label="Pedidos"
+              value="1.284"
+              icon={ShoppingCart}
+              tone="info"
+              trend={
+                <PillTag tone="danger" size="sm" icon={TrendingDown}>
+                  3%
+                </PillTag>
+              }
+              action={<SettingsButton label="Configurar pedidos" />}
+            />
+            <StatCard
+              label="Vendas do mês"
+              value="R$ 48.320"
+              icon={ShoppingCart}
+              tone="brand"
+              goal={{ current: 48320, target: 60000, label: 'R$ 60.000' }}
+              action={<SettingsButton label="Configurar meta" />}
+            />
+          </div>
+        </section>
 
         <CardBox>
           <CardBoxHeader title="Botões" />

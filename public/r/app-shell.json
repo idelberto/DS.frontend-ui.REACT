@@ -35,5 +35,6 @@
       "type": "registry:component"
     }
   ],
+  "docs": "O sidebar do shadcn chega com o texto de leitor de tela em inglês. Em components/ui/sidebar.tsx, troque \"Toggle Sidebar\" por \"Abrir ou fechar o menu\", o título da gaveta \"Sidebar\" por \"Menu\" e \"Displays the mobile sidebar.\" por \"Navegação principal.\", como na vitrine.",
   "type": "registry:block"
 }

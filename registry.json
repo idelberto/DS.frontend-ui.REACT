@@ -122,6 +122,7 @@
       "title": "App shell",
       "description": "Menu lateral do Admin One sobre o sidebar do shadcn (grupos, ícones, item ativo, item \"Em breve\", menu recolhido e sobreposição no celular) e a barra superior, com espaço para a marca, a unidade e o usuário.",
       "registryDependencies": ["sidebar", "@frontend-ui/theme", "@frontend-ui/button"],
+      "docs": "O sidebar do shadcn chega com o texto de leitor de tela em inglês. Em components/ui/sidebar.tsx, troque \"Toggle Sidebar\" por \"Abrir ou fechar o menu\", o título da gaveta \"Sidebar\" por \"Menu\" e \"Displays the mobile sidebar.\" por \"Navegação principal.\", como na vitrine.",
       "files": [
         {
           "path": "registry/frontend-ui/app-shell/components/app-shell.tsx",

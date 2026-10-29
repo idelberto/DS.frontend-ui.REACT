@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loading-state",
+  "title": "Loading state",
+  "description": "O esqueleto da tela enquanto ela carrega, trazido do BioStar4Life.",
+  "registryDependencies": [
+    "skeleton",
+    "@frontend-ui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/frontend-ui/loading-state/components/loading-state.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton';\n\nconst PLACEHOLDER_ROWS = ['first', 'second', 'third'];\n\n// O esqueleto ocupa só o conteúdo: o menu e o cabeçalho da área continuam na tela enquanto a página carrega.\nexport function LoadingState() {\n  return (\n    <div role=\"status\" className=\"flex flex-col gap-6\">\n      <span className=\"sr-only\">Carregando…</span>\n      <div className=\"flex flex-col gap-2\">\n        <Skeleton className=\"h-8 w-48\" />\n        <Skeleton className=\"h-4 w-80 max-w-full\" />\n      </div>\n      <div className=\"flex flex-col gap-3\">\n        {PLACEHOLDER_ROWS.map((row) => (\n          <Skeleton key={row} className=\"h-12 w-full rounded-2xl bg-card\" />\n        ))}\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

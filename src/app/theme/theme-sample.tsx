@@ -12,7 +12,7 @@ export function ThemeSample() {
         <input
           aria-label="Campo de exemplo"
           placeholder="Campo"
-          className="h-12 rounded-sm border border-input bg-card px-3 placeholder:text-muted-foreground"
+          className="h-12 w-full min-w-0 rounded-sm border border-input bg-card px-3 placeholder:text-muted-foreground"
         />
         <div className="flex flex-wrap gap-2">
           <button

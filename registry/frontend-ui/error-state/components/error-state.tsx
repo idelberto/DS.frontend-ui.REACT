@@ -18,7 +18,7 @@ export function ErrorState({ digest, homeHref, onRetry }: ErrorStateProps) {
       role="alert"
       className="mx-auto flex w-full max-w-lg flex-col items-center gap-4 rounded-2xl bg-card p-6 text-center text-card-foreground"
     >
-      <span className="flex size-10 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
+      <span className="flex size-10 items-center justify-center rounded-lg bg-destructive/10 text-destructive-muted-foreground">
         <TriangleAlert className="size-5" />
       </span>
       <div className="flex flex-col gap-2">

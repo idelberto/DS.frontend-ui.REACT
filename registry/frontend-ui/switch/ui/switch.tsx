@@ -14,9 +14,10 @@ function Switch({ className, ...props }: SwitchPrimitive.Root.Props) {
       )}
       {...props}
     >
+      {/* O polegar é claro nos dois modos, como no Admin One: no escuro, o do card sumia no trilho. */}
       <SwitchPrimitive.Thumb
         data-slot="switch-thumb"
-        className="block size-[1.125rem] rounded-full border border-input bg-card transition-transform data-checked:translate-x-6 data-checked:border-primary"
+        className="block size-[1.125rem] rounded-full border border-input bg-card transition-transform data-checked:translate-x-6 data-checked:border-primary dark:bg-foreground"
       />
     </SwitchPrimitive.Root>
   );

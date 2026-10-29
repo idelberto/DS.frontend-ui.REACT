@@ -152,8 +152,8 @@ Cinzas frios do Tailwind, uma cor de marca configurável e quatro cores de statu
 
 ### Secondary
 
-- **Status:** sucesso em emerald-700, alerta em yellow-700, perigo em red-600 e informação em blue-600, cheios com texto branco no botão, no selo, no aviso e no toast. O sucesso e o alerta estão um passo acima do Admin One (que usa os -600) para o branco passar no AA. No escuro, os -500.
-- **Texto do selo suave de status** (`--success-muted-foreground` e afins): o tom do status a 15% no fundo, com o texto no -800 do sucesso e do alerta e no -700 do perigo e da informação. No escuro, os -400.
+- **Status:** sucesso em emerald-700, alerta em yellow-700, perigo em red-600 e informação em blue-600, cheios com texto branco no botão, no selo, no aviso e no toast. O sucesso e o alerta estão um passo acima do Admin One (que usa os -600) para o branco passar no AA. Os mesmos tons nos dois modos: os -500 do escuro do Admin One reprovam com o branco.
+- **Texto de status** (`--success-muted-foreground` e afins): o texto do selo suave (o tom a 15% no fundo) e todo texto ou ícone de status sobre o card, como o erro do campo. O -800 do sucesso e do alerta e o -700 do perigo e da informação; no escuro, os -400. O token cheio é só fundo.
 
 ### Neutral
 
@@ -162,7 +162,7 @@ Cinzas frios do Tailwind, uma cor de marca configurável e quatro cores de statu
 - **Branco do card:** cards e modal. No escuro, o slate-900/70 sobre o slate-800, já calculado.
 - **Cinza suave** (gray-100): botão secundário, hover da linha, fundo do selo neutro, borda do cabeçalho do card. No escuro, slate-700.
 - **Cinza de apoio** (gray-500): texto secundário, legenda, rodapé. No escuro, slate-400.
-- **Traço do campo** (gray-700): a borda do campo, igual nos dois modos.
+- **Traço do campo** (gray-700): a borda do campo, do checkbox, do radio e do switch. No escuro, slate-500, porque o gray-700 some no card escuro.
 
 ### Named Rules
 

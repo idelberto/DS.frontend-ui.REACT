@@ -20,10 +20,12 @@ const buttonVariants = cva(
         success: `border-success bg-success text-success-foreground ${DARKER_ON_HOVER}`,
         warning: `border-warning bg-warning text-warning-foreground ${DARKER_ON_HOVER}`,
         info: `border-info bg-info text-info-foreground ${DARKER_ON_HOVER}`,
+        // No escuro, a marca como texto sobre o card fica abaixo do AA (3,1:1 no roxo): o contorno e o
+        // link usam a marca clara do escuro, a mesma do item ativo do menu.
         outline:
-          'border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground',
+          'border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground dark:border-brand-muted-foreground dark:text-brand-muted-foreground dark:hover:border-primary dark:hover:text-primary-foreground',
         ghost: 'border-transparent hover:bg-muted hover:text-foreground',
-        link: 'border-transparent text-primary underline-offset-4 hover:underline',
+        link: 'border-transparent text-primary underline-offset-4 hover:underline dark:text-brand-muted-foreground',
       },
       size: {
         default: 'h-10 px-3',

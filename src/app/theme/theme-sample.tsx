@@ -26,7 +26,7 @@ export function ThemeSample() {
           </button>
           <button
             type="button"
-            className="rounded-full border border-destructive px-6 py-2 font-semibold text-destructive"
+            className="rounded-full border border-destructive px-6 py-2 font-semibold text-destructive-muted-foreground"
           >
             Excluir
           </button>

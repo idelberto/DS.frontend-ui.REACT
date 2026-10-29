@@ -2,7 +2,7 @@
 
 De onde vem cada variável do item `theme`. A referência é o `PTL.BioStar4Life.VUE` (Admin One Vue Tailwind 3.3, `style-basic`), lido em 28/10/2026: `colors.js`, `css/styles/_basic.css`, os componentes de layout e os prints de `../referencia/`. Os valores são as cores do Tailwind 4 em oklch.
 
-Componente novo usa o token, e não a classe da coluna da esquerda. Se o Admin One usar uma cor que não está aqui, o token entra no tema junto com o componente que precisa dele.
+Componente novo usa o token, e não a classe da coluna da esquerda. Os tokens de status cheios (`success`, `destructive`...) são fundo, com o `-foreground` por cima; texto ou ícone de status sobre o card usa o `-muted-foreground`. No escuro, os dois papéis puxam o tom para lados opostos. Se o Admin One usar uma cor que não está aqui, o token entra no tema junto com o componente que precisa dele.
 
 ## Cores
 
@@ -16,19 +16,19 @@ Componente novo usa o token, e não a classe da coluna da esquerda. Se o Admin O
 | Botão `whiteDark` (engrenagem do título) | `bg-white` | `bg-slate-900` | `secondary` (no claro, `gray-100`, para aparecer sobre o card) |
 | Botão `lightDark`, hover da linha da tabela | `bg-gray-100` | `bg-slate-700` | `accent` e `muted` |
 | Texto secundário (subtítulo da marca, rodapé) | `text-gray-500` | `text-slate-400` | `muted-foreground` |
-| Botão e texto `danger` | `red-600` | `red-500` | `destructive` |
+| Botão e texto `danger` | `red-600` | `red-500` | `destructive` (o `red-600` nos dois modos: o `red-500` do escuro fica em 3,8:1 com o branco) |
 | Borda do cabeçalho do card e da tabela | `border-gray-100` | `border-slate-700`/`800` | `border` (no escuro, `slate-700`) |
-| Campo (`FormControl`) | `border-gray-700` | `border-gray-700` | `input` |
+| Campo (`FormControl`) | `border-gray-700` | `border-gray-700` | `input` (no escuro, o `slate-500`: o `gray-700` some no card escuro, 1,65:1) |
 | Foco do campo e do botão | `ring-purple-500` | `ring-purple-500` | `ring` = `--brand` |
 | Menu lateral (`AsideMenuLayer`) | degradê `from-gray-50 to-gray-100/80` | `slate-900` | `sidebar` (a cor de cima do degradê) |
 | Texto do item do menu (`.aside-menu-item`) | `text-gray-700` | `text-slate-300` | `sidebar-foreground` |
 | Hover do item do menu | `bg-gray-100/80` | `bg-slate-800` | `sidebar-accent` |
 | Borda do menu | `border-gray-200/80` | `border-slate-800/80` | `sidebar-border` |
-| Botão, selo e aviso `success` | `emerald-600` (botão), `emerald-500` (selo, aviso) | `emerald-500` | `success` (no claro, o `emerald-700` para os três: um passo acima do botão, para o branco passar no AA) |
-| Botão, selo e aviso `warning` | `yellow-600`, `yellow-500` | `yellow-500` | `warning` (no claro, o `yellow-700`, pelo mesmo motivo) |
-| Botão, selo e aviso `info` | `blue-600`, `blue-500` | `blue-500` | `info` |
+| Botão, selo e aviso `success` | `emerald-600` (botão), `emerald-500` (selo, aviso) | `emerald-500` | `success` (o `emerald-700` para os três e nos dois modos: um passo acima do botão, para o branco passar no AA) |
+| Botão, selo e aviso `warning` | `yellow-600`, `yellow-500` | `yellow-500` | `warning` (o `yellow-700` nos dois modos, pelo mesmo motivo) |
+| Botão, selo e aviso `info` | `blue-600`, `blue-500` | `blue-500` | `info` (o `blue-600` nos dois modos) |
 | Texto sobre as cores de status | `text-white` | `text-white` | `success-foreground`, `warning-foreground`, `info-foreground` e `destructive-foreground` |
-| Texto do selo suave de status (o tom a 15% no fundo) | a cor do status | a cor do status | `success-muted-foreground`, `warning-muted-foreground`, `destructive-muted-foreground` e `info-muted-foreground`: no claro, o `-800` do sucesso e do alerta e o `-700` do perigo e da informação; no escuro, os `-400`. Não existe no Admin One, onde o texto na própria cor reprova no AA |
+| Texto do selo suave de status (o tom a 15% no fundo) | a cor do status | a cor do status | `success-muted-foreground`, `warning-muted-foreground`, `destructive-muted-foreground` e `info-muted-foreground`: no claro, o `-800` do sucesso e do alerta e o `-700` do perigo e da informação; no escuro, os `-400`. Não existe no Admin One, onde o texto na própria cor reprova no AA. É também o texto e o ícone de status sobre o card, como o erro do campo |
 | Item ativo do menu, versão no rodapé | `bg-purple-50`, `text-purple-600` | `bg-purple-900/20`, `text-purple-400` | `brand-muted` e `brand-muted-foreground` |
 
 ## Marca
@@ -49,7 +49,7 @@ O padrão do tema é o `blue-600`, o azul do Admin One original. Os derivados ac
 - `primary`, `ring`, `sidebar-primary` e `sidebar-ring` são o próprio `--brand`.
 - `brand-foreground` é o texto sobre a marca: branco. Troque junto se a marca for clara.
 - `brand-muted` é a marca a 8% sobre o branco no claro e a 20% transparente no escuro (o `purple-50` e o `purple-900/20`).
-- `brand-muted-foreground` é a marca no claro e a marca a 60% com branco no escuro (o `purple-400`).
+- `brand-muted-foreground` é a marca no claro e a marca a 50% com branco no escuro, um pouco mais clara que o `purple-400` do Admin One para a versão no rodapé passar no AA. No escuro, é também o texto do botão `outline` e do `link`: a marca cheia sobre o card escuro fica em 3,1:1.
 
 A marca precisa de 4,5:1 com o `--brand-foreground`, o mínimo do WCAG AA para texto: o botão, o selo cheio e o link usam o par. O azul do Admin One (5,25:1) e o roxo do BioStar4Life (5,54:1) passam com o branco. Num verde ou num laranja, só o `-700` passa: o `-600` fica em 3,6:1. Uma marca clara precisa de `--brand-foreground` escuro.
 

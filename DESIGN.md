@@ -245,6 +245,12 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 - **Border:** só a linha cinza-suave sob o cabeçalho.
 - **Internal Padding:** 1.5rem no corpo e no rodapé; 0.75rem na vertical do cabeçalho.
 
+### Indicadores
+
+- **Composição:** o `StatGroup`, um card só com o cabeçalho do `CardBox` (título, ícone e uma ação para o grupo), no lugar dos três cards do Admin One.
+- **Indicador** (`Stat`): o selo de tendência em cima, o nome em cinza de apoio (1.125rem), o valor grande (1.875rem, 600) e o ícone de 3rem à direita, na cor do tom.
+- **Divisória:** a linha cinza-suave entre os indicadores, lado a lado a partir de 1024px e um embaixo do outro no celular.
+
 ### Inputs / Fields
 
 - **Style:** 3rem de altura, borda gray-700, fundo do card (no escuro, o da página), cantos de 0.3rem. O ícone, quando há, fica à esquerda em cinza de apoio.

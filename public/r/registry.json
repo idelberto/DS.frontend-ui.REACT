@@ -293,6 +293,19 @@
       ]
     },
     {
+      "name": "stat-group",
+      "type": "registry:component",
+      "title": "Stat group",
+      "description": "Os indicadores do painel num card só: o cabeçalho do card-box, com uma ação para o grupo, e os indicadores lado a lado com divisória (um embaixo do outro no celular). Cada indicador tem o nome, o valor, o ícone na cor do tom e um selo opcional, como a tendência.",
+      "registryDependencies": ["@frontend-ui/card-box", "@frontend-ui/theme"],
+      "files": [
+        {
+          "path": "registry/frontend-ui/stat-group/components/stat-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "pill-tag",
       "type": "registry:component",
       "title": "Pill tag",

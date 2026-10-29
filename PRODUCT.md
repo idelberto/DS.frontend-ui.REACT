@@ -35,7 +35,7 @@ Fidelidade ao Admin One como está no Vue do BioStar4Life, e não um redesenho, 
 
 ## Capabilities and Constraints
 
-- Itens do registry: `theme`, `app-shell`, `section-main`, `section-title`, `footer-bar`, `button`, `input`, `form-field`, `checkbox`, `radio-group`, `switch`, `file-upload`, `card-box`, `pill-tag`, `notification-bar`, `modal`, `toast`, `table`, `loading-state`, `empty-state`, `error-state` e `guest-layout`.
+- Itens do registry: `theme`, `app-shell`, `section-main`, `section-title`, `footer-bar`, `button`, `input`, `form-field`, `checkbox`, `radio-group`, `switch`, `file-upload`, `card-box`, `stat-group`, `pill-tag`, `notification-bar`, `modal`, `toast`, `table`, `loading-state`, `empty-state`, `error-state` e `guest-layout`.
 - Stack: Next 16 com export estático, React 19, Tailwind 4, shadcn 4.23 com Base UI.
 - Item não importa nada do Next: quem depende do framework recebe a peça de fora (`currentPath`, `renderLink`).
 - Item que substitui um componente do shadcn mantém os nomes de variante e tamanho que os outros componentes do shadcn usam.

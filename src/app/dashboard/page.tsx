@@ -1,5 +1,6 @@
 import {
   CalendarClock,
+  ChartColumn,
   ChartLine,
   CircleAlert,
   FileText,
@@ -23,38 +24,39 @@ import {
 import { PillTag } from '@/registry/frontend-ui/pill-tag/components/pill-tag';
 import { SectionMain } from '@/registry/frontend-ui/section-main/components/section-main';
 import { SectionTitle } from '@/registry/frontend-ui/section-title/components/section-title';
+import { Stat, StatGroup } from '@/registry/frontend-ui/stat-group/components/stat-group';
 
 export const metadata: Metadata = { title: 'Painel' };
 
-interface Stat {
+interface Indicator {
   label: string;
   value: string;
   trend: { label: string; tone: 'success' | 'danger' | 'warning'; icon: LucideIcon };
   icon: LucideIcon;
-  iconClassName: string;
+  tone: 'success' | 'info' | 'danger';
 }
 
-const STATS: Stat[] = [
+const STATS: Indicator[] = [
   {
     label: 'Pacientes',
     value: '512',
     trend: { label: '12%', tone: 'success', icon: TrendingUp },
     icon: Users,
-    iconClassName: 'text-success dark:text-success-muted-foreground',
+    tone: 'success',
   },
   {
     label: 'Atendimentos',
     value: '38',
     trend: { label: '8%', tone: 'danger', icon: TrendingDown },
     icon: Stethoscope,
-    iconClassName: 'text-info dark:text-info-muted-foreground',
+    tone: 'info',
   },
   {
     label: 'Faturamento',
     value: 'R$ 7.770',
     trend: { label: 'Meta', tone: 'warning', icon: CircleAlert },
     icon: HandCoins,
-    iconClassName: 'text-destructive dark:text-destructive-muted-foreground',
+    tone: 'danger',
   },
 ];
 
@@ -64,30 +66,6 @@ function SettingsButton({ label }: { label: string }) {
     <Button variant="ghost" size="icon-sm" className="text-muted-foreground" aria-label={label}>
       <Settings />
     </Button>
-  );
-}
-
-function StatCard({ stat }: { stat: Stat }) {
-  const Icon = stat.icon;
-
-  return (
-    <CardBox>
-      <CardBoxBody>
-        <div className="mb-3 flex items-center justify-between">
-          <PillTag tone={stat.trend.tone} size="sm" icon={stat.trend.icon}>
-            {stat.trend.label}
-          </PillTag>
-          <SettingsButton label={`Configurar ${stat.label}`} />
-        </div>
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-lg leading-tight text-muted-foreground">{stat.label}</h2>
-            <p className="text-3xl leading-tight font-semibold">{stat.value}</p>
-          </div>
-          <Icon className={`size-12 ${stat.iconClassName}`} />
-        </div>
-      </CardBoxBody>
-    </CardBox>
   );
 }
 
@@ -102,11 +80,26 @@ export default function DashboardPage() {
           </Button>
         </SectionTitle>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <StatGroup
+          title="Indicadores"
+          icon={ChartColumn}
+          action={<SettingsButton label="Configurar indicadores" />}
+        >
           {STATS.map((stat) => (
-            <StatCard key={stat.label} stat={stat} />
+            <Stat
+              key={stat.label}
+              label={stat.label}
+              value={stat.value}
+              icon={stat.icon}
+              tone={stat.tone}
+              trend={
+                <PillTag tone={stat.trend.tone} size="sm" icon={stat.trend.icon}>
+                  {stat.trend.label}
+                </PillTag>
+              }
+            />
           ))}
-        </div>
+        </StatGroup>
 
         <CardBox>
           <CardBoxHeader

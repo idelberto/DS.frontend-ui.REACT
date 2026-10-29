@@ -1,6 +1,6 @@
 'use client';
 
-import { Lock, Mail } from 'lucide-react';
+import { Lock, LogIn, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import type { SubmitEvent } from 'react';
@@ -38,7 +38,10 @@ export function LoginForm() {
         <Link href="/forgot-password/" className={buttonVariants({ variant: 'link' })}>
           Esqueci a senha
         </Link>
-        <Button type="submit">Entrar</Button>
+        <Button type="submit" className="min-w-32">
+          <LogIn />
+          Entrar
+        </Button>
       </div>
     </form>
   );

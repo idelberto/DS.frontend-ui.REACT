@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 import Link from 'next/link';
 import type { SubmitEvent } from 'react';
 
@@ -31,7 +31,10 @@ export function ForgotPasswordForm() {
         <Link href="/login/" className={buttonVariants({ variant: 'link' })}>
           Voltar para o login
         </Link>
-        <Button type="submit">Enviar link</Button>
+        <Button type="submit" className="min-w-32">
+          <Send />
+          Enviar link
+        </Button>
       </div>
     </form>
   );

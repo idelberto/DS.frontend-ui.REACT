@@ -71,6 +71,14 @@ test('the forms page links labels to fields and toggles the checkbox', async ({ 
   await expect(reminder).toBeChecked();
 });
 
+test('the interface page shows the indicators with the goal meter', async ({ page }) => {
+  await page.goto('ui/');
+
+  const meter = page.getByRole('meter', { name: 'Meta R$ 60.000' });
+  await expect(meter).toBeVisible();
+  await expect(meter).toHaveAttribute('aria-valuetext', '81% da meta');
+});
+
 test('the interface page opens the modal and shows a toast', async ({ page }) => {
   await page.goto('ui/');
 

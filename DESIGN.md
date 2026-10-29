@@ -195,7 +195,7 @@ Cinzas frios do Tailwind, uma cor de marca configurável e quatro cores de statu
 ## Layout
 
 - A área de conteúdo (`SectionMain`) tem 1.5rem de respiro e, de 1280px em diante, centraliza com largura máxima de 72rem.
-- O título da página fica a 1.5rem dos cards; os cards ficam a 1.5rem uns dos outros, em grade de três colunas a partir de 1024px no painel.
+- O título da página fica a 1.5rem dos cards; os cards ficam a 1.5rem uns dos outros, em grade de três colunas a partir de 1024px no painel. Esse espaço é o `gap` do `SectionMain`: nem o título nem o card têm margem própria, que somaria com ele.
 - O menu lateral tem 18rem no desktop, recolhe para os ícones e, abaixo de 768px, vira uma gaveta por cima da tela.
 - A tabela mostra o cabeçalho e as bordas entre colunas a partir de 1024px; abaixo, cada linha vira um cartão com borda grossa entre eles.
 - As telas sem sessão centralizam um card sobre o degradê da marca, com largura de 11/12 no celular a 4/12 em 1280px.
@@ -253,13 +253,13 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 
 ### Navigation
 
-- **Menu lateral:** fundo cinza da página, itens de 2.75rem com ícone de 18px a 80% de opacidade. Hover em cinza suave. O item ativo tem fundo da marca suave, texto na marca e uma barra de 4px da marca à esquerda.
+- **Menu lateral:** fundo cinza da página, só a sombra, sem contorno. Itens de 2.75rem com ícone de 18px a 80% de opacidade, separados por uma linha clara (a borda do menu a 50%), num passo de 49px. Hover em cinza suave. O item ativo tem fundo da marca suave, texto na marca e uma barra de 4px da marca à esquerda.
 - **Item sem tela:** apagado, com o selo "Em breve" em cinza.
-- **Celular:** o menu vira gaveta pelo botão da barra superior.
+- **Celular:** o menu vira gaveta pelo botão da barra superior (44px), e a gaveta tem o X "Fechar menu" no topo.
 
 ### Tabela
 
-Linhas listradas e bordas entre as colunas no desktop; a linha selecionada fica na marca suave. No celular, cada linha vira um cartão, e cada célula mostra o rótulo da coluna antes do valor. A paginação é uma fileira de links quadrados com a página atual em cinza suave e negrito.
+Linhas listradas e bordas entre as colunas no desktop, com o hover em cinza suave em todas as linhas; a linha selecionada fica na marca suave. A tabela larga rola dentro do card, nunca a página. No celular, cada linha vira um cartão, e cada célula mostra o rótulo da coluna antes do valor. A paginação é uma fileira de links quadrados com a página atual em cinza suave e negrito.
 
 ## Do's and Don'ts
 

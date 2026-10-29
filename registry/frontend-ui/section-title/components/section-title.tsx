@@ -9,7 +9,7 @@ interface SectionTitleProps {
 
 export function SectionTitle({ icon: Icon, title, children }: SectionTitleProps) {
   return (
-    <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+    <div className="flex flex-wrap items-center justify-between gap-3">
       <div className="flex min-w-0 items-center gap-3">
         <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-card text-card-foreground">
           <Icon className="size-6" />

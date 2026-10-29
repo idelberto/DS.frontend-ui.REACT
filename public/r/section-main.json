@@ -2,11 +2,11 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "section-main",
   "title": "Section main",
-  "description": "A área de conteúdo da página, com o espaçamento e a largura máxima do Admin One.",
+  "description": "A área de conteúdo da página, com o espaçamento e a largura máxima do Admin One. Empilha os blocos (título, cards) com 1.5rem entre eles.",
   "files": [
     {
       "path": "registry/frontend-ui/section-main/components/section-main.tsx",
-      "content": "import type { ComponentProps } from 'react';\n\nimport { cn } from '@/lib/utils';\n\nexport function SectionMain({ className, ...props }: ComponentProps<'section'>) {\n  return <section className={cn('p-6 xl:mx-auto xl:w-full xl:max-w-6xl', className)} {...props} />;\n}\n",
+      "content": "import type { ComponentProps } from 'react';\n\nimport { cn } from '@/lib/utils';\n\n// O espaço entre os blocos da página (título, cards) é o gap daqui, e não a margem de cada um: um\n// filho com margem somaria com o gap.\nexport function SectionMain({ className, ...props }: ComponentProps<'section'>) {\n  return (\n    <section\n      className={cn('flex flex-col gap-6 p-6 xl:mx-auto xl:w-full xl:max-w-6xl', className)}\n      {...props}\n    />\n  );\n}\n",
       "type": "registry:component"
     }
   ],

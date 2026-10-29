@@ -15,7 +15,7 @@ export const metadata: Metadata = { title: 'Estados' };
 export default function StatesPage() {
   return (
     <ShowcaseShell>
-      <SectionMain className="flex flex-col gap-10">
+      <SectionMain>
         <SectionTitle icon={CircleDashed} title="Estados" />
 
         <section className="flex flex-col gap-3">

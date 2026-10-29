@@ -34,11 +34,12 @@ export function AppShell({ sidebar, children, actions, defaultOpen = true }: App
         </a>
         {sidebar}
         {/* O scroll-mt nos descendentes: ao voltar com Shift+Tab, o elemento focado para abaixo da
-            barra fixa, e não embaixo dela. */}
+            barra fixa, e não embaixo dela. O min-w-0 deixa o conteúdo largo (uma tabela) rolar
+            dentro do card: sem ele, a página inteira rola de lado entre 1024 e ~1160px. */}
         <SidebarInset
           id={MAIN_CONTENT_ID}
           tabIndex={-1}
-          className="outline-none [&_*]:scroll-mt-18"
+          className="min-w-0 outline-none [&_*]:scroll-mt-18"
         >
           <header className="sticky top-0 z-10 flex h-14 shrink-0 items-center gap-2 bg-background px-3">
             <AppShellTrigger />

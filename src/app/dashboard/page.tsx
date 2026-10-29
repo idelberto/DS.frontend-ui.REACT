@@ -101,7 +101,7 @@ export default function DashboardPage() {
           </Button>
         </SectionTitle>
 
-        <div className="mb-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {STATS.map((stat) => (
             <StatCard key={stat.label} stat={stat} />
           ))}

@@ -132,6 +132,7 @@ export default function UiPage() {
           <CardBoxBody className="flex flex-col gap-4">
             <Modal
               title="Excluir paciente?"
+              description="Ana Carolina Silva Santos sai da lista de pacientes."
               trigger={
                 <Button variant="destructive" className="self-start">
                   Excluir paciente
@@ -144,7 +145,6 @@ export default function UiPage() {
                 </>
               }
             >
-              <p>Ana Carolina Silva Santos sai da lista de pacientes.</p>
               <p className="text-muted-foreground">
                 O histórico de atendimentos continua guardado.
               </p>

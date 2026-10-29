@@ -37,7 +37,7 @@ function ToastList() {
       <Toast.Root
         key={toast.id}
         toast={toast}
-        className={`flex items-center gap-3 rounded-lg px-4 py-3 shadow-lg transition-[opacity,translate] duration-200 data-ending-style:opacity-0 data-starting-style:-translate-y-2 data-starting-style:opacity-0 ${style.className}`}
+        className={`flex items-center gap-3 rounded-lg px-4 py-3 shadow-lg transition-[opacity,translate] duration-200 data-ending-style:opacity-0 data-starting-style:-translate-y-2 data-starting-style:opacity-0 motion-reduce:transition-none ${style.className}`}
       >
         <Icon className="size-5 shrink-0" />
         <Toast.Content className="flex min-w-0 flex-1 flex-col">

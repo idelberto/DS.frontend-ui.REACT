@@ -61,7 +61,7 @@ function TableHead({ className, ...props }: ComponentProps<'th'>) {
   return (
     <th
       data-slot="table-head"
-      className={cn('p-3 text-left align-middle font-semibold whitespace-nowrap', className)}
+      className={cn('p-3 text-left align-middle font-bold whitespace-nowrap', className)}
       {...props}
     />
   );

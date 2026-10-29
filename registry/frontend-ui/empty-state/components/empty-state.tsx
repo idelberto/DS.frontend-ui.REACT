@@ -25,7 +25,8 @@ export function EmptyState({ icon: Icon, title, description, children }: EmptySt
         <EmptyMedia variant="icon">
           <Icon />
         </EmptyMedia>
-        <EmptyTitle>{title}</EmptyTitle>
+        {/* O título grande e de peso normal do Admin One, como o do erro e o do modal. */}
+        <EmptyTitle className="text-2xl font-normal">{title}</EmptyTitle>
         <EmptyDescription>{description}</EmptyDescription>
       </EmptyHeader>
       {children !== undefined && <EmptyContent>{children}</EmptyContent>}

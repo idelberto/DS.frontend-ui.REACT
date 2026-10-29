@@ -22,8 +22,8 @@ export function ErrorState({ digest, homeHref, onRetry }: ErrorStateProps) {
         <TriangleAlert className="size-5" />
       </span>
       <div className="flex flex-col gap-2">
-        <h1 className="text-lg font-semibold">Não foi possível carregar esta tela</h1>
-        <p className="text-sm text-muted-foreground">
+        <h1 className="text-2xl">Não foi possível carregar esta tela</h1>
+        <p className="text-sm text-pretty text-muted-foreground">
           Pode ter sido uma falha passageira. Tente de novo.
         </p>
         <SupportHint digest={digest} />

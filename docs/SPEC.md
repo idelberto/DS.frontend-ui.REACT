@@ -94,3 +94,5 @@ Os lotes 0.4 a 0.6 seguem a ordem em que o BioStar4Life vai precisar deles: a Fa
 ## Decisões pendentes
 
 - ❓ **Fonte (achado do lote 0.2):** o Vue carrega a Nunito e a Quicksand no `index.html`, mas nenhum CSS nem o `tailwind.config.js` as usa, e a tela sai na fonte do sistema (`docs/TOKENS.md`). A Quicksand fica fora do tema. A Nunito segue como decidido, porque o tema só usa a `--font-sans` e quem escolhe a fonte é o projeto. Se o objetivo for o visual exato do Vue, a troca é tirar o `next/font` da vitrine e do BioStar4Life e usar a fonte do sistema.
+- ❓ **Item ativo do menu (revisão de 28/10):** o fundo da marca suave (`brand-muted`) está no código do Vue (`bg-purple-50`), mas não aparece na tela dele, porque o `bg-gray-50` do `style-basic` vence a especificidade. Hoje o fundo fica, porque ajuda a achar o item. Se o objetivo for o print do Vue, a troca é tirar o `data-active:bg-brand-muted` do `app-navigation`.
+- ❓ **Ícones (revisão de 28/10):** os itens usam o lucide, de traço, que vem com o shadcn; o Admin One usa o MDI, cheio. É o maior desvio visual que não está registrado. Hoje fica o lucide.

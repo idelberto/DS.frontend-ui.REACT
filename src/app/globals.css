@@ -22,6 +22,7 @@
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
   --color-info-muted-foreground: var(--info-muted-foreground);
+  --color-overlay: var(--overlay);
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);

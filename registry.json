@@ -7,7 +7,7 @@
       "name": "theme",
       "type": "registry:theme",
       "title": "Tema",
-      "description": "Cores do claro e do escuro do Admin One, os status (success, warning, info, destructive) e o texto deles nos selos suaves, a cor da marca (--brand) e seus derivados, e o raio. A fonte é a --font-sans que o projeto carrega.",
+      "description": "Cores do claro e do escuro do Admin One, os status (success, warning, info, destructive) e o texto deles nos selos suaves, a cor da marca (--brand) e seus derivados, o fundo do modal e o raio. A fonte é a --font-sans que o projeto carrega.",
       "cssVars": {
         "theme": {
           "color-brand": "var(--brand)",
@@ -24,7 +24,8 @@
           "color-warning-muted-foreground": "var(--warning-muted-foreground)",
           "color-info": "var(--info)",
           "color-info-foreground": "var(--info-foreground)",
-          "color-info-muted-foreground": "var(--info-muted-foreground)"
+          "color-info-muted-foreground": "var(--info-muted-foreground)",
+          "color-overlay": "var(--overlay)"
         },
         "light": {
           "brand": "oklch(0.546 0.245 262.881)",
@@ -37,6 +38,7 @@
           "card-foreground": "oklch(0.21 0.034 264.665)",
           "popover": "oklch(1 0 0)",
           "popover-foreground": "oklch(0.21 0.034 264.665)",
+          "overlay": "oklch(0.21 0.034 264.665)",
           "primary": "var(--brand)",
           "primary-foreground": "var(--brand-foreground)",
           "secondary": "oklch(0.967 0.003 264.542)",
@@ -79,6 +81,7 @@
           "card-foreground": "oklch(0.968 0.007 247.896)",
           "popover": "oklch(0.208 0.042 265.755)",
           "popover-foreground": "oklch(0.968 0.007 247.896)",
+          "overlay": "oklch(0.21 0.034 264.665)",
           "primary": "var(--brand)",
           "primary-foreground": "var(--brand-foreground)",
           "secondary": "oklch(0.208 0.042 265.755)",
@@ -119,6 +122,7 @@
       "title": "App shell",
       "description": "Menu lateral do Admin One sobre o sidebar do shadcn (grupos, ícones, item ativo, item \"Em breve\", menu recolhido e sobreposição no celular) e a barra superior, com espaço para a marca, a unidade e o usuário.",
       "registryDependencies": ["sidebar", "@frontend-ui/theme", "@frontend-ui/button"],
+      "docs": "O sidebar do shadcn chega com o texto de leitor de tela em inglês. Em components/ui/sidebar.tsx, troque \"Toggle Sidebar\" por \"Abrir ou fechar o menu\", o título da gaveta \"Sidebar\" por \"Menu\" e \"Displays the mobile sidebar.\" por \"Navegação principal.\", como na vitrine.",
       "files": [
         {
           "path": "registry/frontend-ui/app-shell/components/app-shell.tsx",

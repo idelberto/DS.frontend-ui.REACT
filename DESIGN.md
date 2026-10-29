@@ -181,7 +181,7 @@ Cinzas frios do Tailwind, uma cor de marca configurável e quatro cores de statu
 ### Hierarchy
 
 - **Título da página** (400, 1.875rem, 1.25): o `SectionTitle`, ao lado do ícone em círculo.
-- **Título do modal** (400, 1.5rem): o título do `Modal` e das telas sem sessão.
+- **Título do modal** (400, 1.5rem): o título do `Modal`, das telas sem sessão e dos estados de vazio e de erro.
 - **Título do card** (700, 1rem): o cabeçalho do `CardBox`, com ícone de 1.25rem.
 - **Texto** (400, 1rem, 1.5): o corpo, as células da tabela e os campos.
 - **Rótulo do campo** (700, 1rem): o `FormField` e as legendas dos grupos de opção.
@@ -208,7 +208,7 @@ Plano por padrão. O card não tem sombra: a profundidade vem do branco do card 
 
 - **Menu lateral** (`shadow-xl` do Tailwind): o menu flutuante.
 - **Card das telas sem sessão** (`shadow-2xl`): o card do login sobre o degradê.
-- **Modal e toast** (`shadow-lg`): o que abre por cima da tela.
+- **Modal e toast** (`shadow-lg`): o que abre por cima da tela. O fundo do modal é o degradê do Admin One, do token `--overlay` (o gray-900, a 80% nas pontas e 90% no meio).
 
 ### Named Rules
 
@@ -270,6 +270,7 @@ Linhas listradas e bordas entre as colunas no desktop, com o hover em cinza suav
 - **Do** manter o card plano e deixar a sombra para o que flutua.
 - **Do** passar o rótulo (`label`) em toda `TableCell`, para o cartão do celular.
 - **Do** estilizar link como botão com o `buttonVariants`, e não com o `Button` e o `render`.
+- **Do** parar a transição e o pulso com o `prefers-reduced-motion` (`motion-reduce:transition-none`, `motion-reduce:animate-none`).
 
 ### Don't:
 

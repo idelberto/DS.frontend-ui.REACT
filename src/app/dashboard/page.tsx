@@ -40,21 +40,21 @@ const STATS: Stat[] = [
     value: '512',
     trend: { label: '12%', tone: 'success', icon: TrendingUp },
     icon: Users,
-    iconClassName: 'text-success',
+    iconClassName: 'text-success dark:text-success-muted-foreground',
   },
   {
     label: 'Atendimentos',
     value: '38',
     trend: { label: '8%', tone: 'danger', icon: TrendingDown },
     icon: Stethoscope,
-    iconClassName: 'text-info',
+    iconClassName: 'text-info dark:text-info-muted-foreground',
   },
   {
     label: 'Faturamento',
     value: 'R$ 7.770',
     trend: { label: 'Meta', tone: 'warning', icon: CircleAlert },
     icon: HandCoins,
-    iconClassName: 'text-destructive',
+    iconClassName: 'text-destructive dark:text-destructive-muted-foreground',
   },
 ];
 

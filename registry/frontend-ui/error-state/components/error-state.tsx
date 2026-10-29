@@ -1,6 +1,6 @@
 'use client';
 
-import { TriangleAlert } from 'lucide-react';
+import { House, RotateCw, TriangleAlert } from 'lucide-react';
 
 import { Button, buttonVariants } from '@/registry/frontend-ui/button/ui/button';
 
@@ -28,9 +28,14 @@ export function ErrorState({ digest, homeHref, onRetry }: ErrorStateProps) {
         </p>
         <SupportHint digest={digest} />
       </div>
-      <div className="flex flex-wrap justify-center gap-2">
-        <Button onClick={onRetry}>Tentar de novo</Button>
+      {/* O ícone de cada ação e os 8rem no mínimo do padrão dos botões de ação (DESIGN.md). */}
+      <div className="flex flex-wrap justify-center gap-2 *:min-w-32">
+        <Button onClick={onRetry}>
+          <RotateCw />
+          Tentar de novo
+        </Button>
         <a href={homeHref} className={buttonVariants({ variant: 'outline' })}>
+          <House />
           Voltar ao início
         </a>
       </div>

@@ -23,12 +23,15 @@ export function AppSidebar({ header, children, footer }: AppSidebarProps) {
       collapsible="icon"
       className="**:data-[slot=sidebar-inner]:rounded-2xl **:data-[slot=sidebar-inner]:shadow-xl **:data-[slot=sidebar-inner]:ring-0"
     >
-      {/* No celular, o pr-14 abre espaço para o X da gaveta. */}
-      <SidebarHeader className="relative gap-3 border-b border-sidebar-border px-3 py-4 in-data-[mobile=true]:pr-14">
+      {/* No celular, o pr-14 abre espaço para o X da gaveta. Recolhido, o menu tem 3rem: os recuos
+          de aberto empurravam a marca e os ícones para fora do centro. */}
+      <SidebarHeader className="relative gap-3 border-b border-sidebar-border px-3 py-4 group-data-[collapsible=icon]:px-1 in-data-[mobile=true]:pr-14">
         {header}
         <AppSidebarClose />
       </SidebarHeader>
-      <SidebarContent className="px-2 py-2">{children}</SidebarContent>
+      <SidebarContent className="px-2 py-2 group-data-[collapsible=icon]:px-0">
+        {children}
+      </SidebarContent>
       {footer !== undefined && (
         <SidebarFooter className="border-t border-sidebar-border px-2 py-3">{footer}</SidebarFooter>
       )}

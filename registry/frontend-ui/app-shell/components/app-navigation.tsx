@@ -31,8 +31,15 @@ interface AppNavigationProps {
   renderLink?: (href: string) => ReactElement;
 }
 
+// O item ativo como no Admin One: sem fundo, com o ícone e o texto na marca.
 const ITEM_CLASS =
-  'relative h-11 gap-3 px-4 font-medium [&_svg]:size-[18px] [&_svg]:opacity-80 data-active:bg-brand-muted data-active:text-brand-muted-foreground data-active:hover:bg-brand-muted data-active:hover:text-brand-muted-foreground data-active:[&_svg]:opacity-100 data-active:before:absolute data-active:before:top-1/2 data-active:before:left-0 data-active:before:h-7 data-active:before:w-1 data-active:before:-translate-y-1/2 data-active:before:rounded-r-full data-active:before:bg-primary';
+  'relative h-11 gap-3 px-4 font-medium [&_svg]:size-[18px] [&_svg]:opacity-80 data-active:bg-transparent data-active:text-brand-muted-foreground data-active:hover:bg-sidebar-accent data-active:hover:text-brand-muted-foreground data-active:[&_svg]:opacity-100';
+
+// A barra da marca do item ativo, colada na borda esquerda do menu. Fica no <li>, e não no botão,
+// que corta o que passa da borda dele (overflow-hidden do shadcn). Aberto, o menu tem 16px de recuo
+// até o item; recolhido, 8px.
+const ACTIVE_BAR_CLASS =
+  'has-data-active:before:absolute has-data-active:before:top-1/2 has-data-active:before:-left-4 has-data-active:before:h-7 has-data-active:before:w-1 has-data-active:before:-translate-y-1/2 has-data-active:before:rounded-r-full has-data-active:before:bg-primary group-data-[collapsible=icon]:has-data-active:before:-left-2';
 
 function renderAnchor(href: string): ReactElement {
   return <a href={href} />;
@@ -124,7 +131,7 @@ function NavigationEntry({ item, currentPath, renderLink }: NavigationEntryProps
 
   const isActive = isCurrentPath(item.href, currentPath);
   return (
-    <SidebarMenuItem>
+    <SidebarMenuItem className={ACTIVE_BAR_CLASS}>
       <SidebarMenuButton
         isActive={isActive}
         tooltip={item.label}

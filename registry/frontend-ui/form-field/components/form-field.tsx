@@ -23,7 +23,10 @@ export function FormField({ label, children, description, error, className }: Fo
           {description}
         </Field.Description>
       )}
-      <Field.Error match={error !== undefined} className="text-xs font-medium text-destructive">
+      <Field.Error
+        match={error !== undefined}
+        className="text-xs font-medium text-destructive-muted-foreground"
+      >
         {error}
       </Field.Error>
     </Field.Root>

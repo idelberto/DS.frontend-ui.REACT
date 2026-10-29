@@ -27,8 +27,10 @@ function TableBody({ className, ...props }: ComponentProps<'tbody'>) {
   return (
     <tbody
       data-slot="table-body"
+      // O hover precisa vencer o fundo das listradas: o :nth-child(n) soma a especificidade, como o
+      // "tbody tr, tbody tr:nth-child(odd)" do Admin One. Sem ele, as ímpares não mudavam.
       className={cn(
-        'lg:[&>tr:hover]:bg-muted lg:[&>tr:nth-child(odd)]:bg-muted/50 dark:lg:[&>tr:nth-child(odd)]:bg-background/50',
+        'lg:[&>tr:nth-child(odd)]:bg-muted/50 lg:[&>tr:nth-child(n):hover]:bg-muted dark:lg:[&>tr:nth-child(odd)]:bg-background/50 dark:lg:[&>tr:nth-child(n):hover]:bg-muted',
         className,
       )}
       {...props}

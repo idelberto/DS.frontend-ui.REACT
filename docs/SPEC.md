@@ -19,6 +19,7 @@ Design system dos meus projetos React: o visual do Admin One, o template do Vue 
 | Acessibilidade | WCAG 2.2 AA. Onde o Admin One não passa, como o texto branco sobre as cores de status, o tom muda o mínimo necessário, e a fidelidade cede só nesse ponto (28/10) |
 | Contexto de design | `PRODUCT.md` e `DESIGN.md` na raiz, versionados, para o impeccable e os agentes. A `.impeccable/` fica fora do git e do prettier, como a `.claude/` (28/10) |
 | Indicadores do painel | Um card só, com o cabeçalho do `card-box` e uma ação para o grupo, e os indicadores lado a lado com divisória: o item `stat-group`. Desvio pedido em relação aos três cards separados (`CardBoxWidget`) do Admin One (28/10) |
+| Item ativo do menu | Sem fundo: o ícone e o texto na marca e a barra da marca colada na borda esquerda do menu, como o print do Vue. Fecha a decisão pendente da revisão de 28/10 (28/10) |
 
 No projeto que consome:
 
@@ -60,6 +61,7 @@ Um branch e um PR por lote. Ao fim de cada um, paro com a evidência e espero o 
 6. **0.6 Visitante:** layout de login e as telas sem sessão.
 7. **0.7 Revisão de design:** as correções da revisão com o impeccable de 28/10 (acessibilidade, consistência e acabamento, sem perder o visual do Admin One). É a exceção ao um PR por lote: seis PRs pequenos, com o número do lote, um por assunto (contraste, foco e teclado, shell e tabela, modo escuro, acabamento e vitrine). O relatório e os prints ficam fora do repositório, em `../evidencias/revisao-impeccable/`.
 8. **0.8 Indicadores:** item `stat-group`, os indicadores do painel num card só, e a página Painel com ele.
+9. **0.9 Menu lateral:** o item ativo como no Admin One e o menu recolhido alinhado, com a marca e os ícones no centro.
 
 Os lotes 0.4 a 0.6 seguem a ordem em que o BioStar4Life vai precisar deles: a Fase 1 começa por pacientes, com formulário e lista.
 
@@ -96,5 +98,4 @@ Os lotes 0.4 a 0.6 seguem a ordem em que o BioStar4Life vai precisar deles: a Fa
 ## Decisões pendentes
 
 - ❓ **Fonte (achado do lote 0.2):** o Vue carrega a Nunito e a Quicksand no `index.html`, mas nenhum CSS nem o `tailwind.config.js` as usa, e a tela sai na fonte do sistema (`docs/TOKENS.md`). A Quicksand fica fora do tema. A Nunito segue como decidido, porque o tema só usa a `--font-sans` e quem escolhe a fonte é o projeto. Se o objetivo for o visual exato do Vue, a troca é tirar o `next/font` da vitrine e do BioStar4Life e usar a fonte do sistema.
-- ❓ **Item ativo do menu (revisão de 28/10):** o fundo da marca suave (`brand-muted`) está no código do Vue (`bg-purple-50`), mas não aparece na tela dele, porque o `bg-gray-50` do `style-basic` vence a especificidade. Hoje o fundo fica, porque ajuda a achar o item. Se o objetivo for o print do Vue, a troca é tirar o `data-active:bg-brand-muted` do `app-navigation`.
 - ❓ **Ícones (revisão de 28/10):** os itens usam o lucide, de traço, que vem com o shadcn; o Admin One usa o MDI, cheio. É o maior desvio visual que não está registrado. Hoje fica o lucide.

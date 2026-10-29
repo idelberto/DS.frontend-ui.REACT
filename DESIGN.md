@@ -113,7 +113,6 @@ components:
     height: '2.75rem'
     padding: '0 1rem'
   nav-item-active:
-    backgroundColor: '{colors.brand-muted}'
     textColor: '{colors.brand}'
     rounded: '{rounded.lg}'
     height: '2.75rem'
@@ -138,7 +137,7 @@ O escuro é o slate do Admin One, com as mesmas regras: cards um tom abaixo do f
 - Cards brancos de canto bem arredondado (0.9rem) sobre cinza-claro, sem sombra em repouso.
 - Botões retos (0.3rem) ou em pílula, cheios na cor, que escurecem no hover.
 - Campos altos (3rem) com borda escura de verdade, e não o cinza-claro do shadcn.
-- Menu lateral flutuante com o item ativo em fundo da marca a 8% e uma barra da marca à esquerda.
+- Menu lateral flutuante com o item ativo na cor da marca, sem fundo, e uma barra da marca colada na borda esquerda.
 - No celular, a tabela vira uma pilha de cartões com o rótulo antes de cada valor.
 
 ## Colors
@@ -148,7 +147,7 @@ Cinzas frios do Tailwind, uma cor de marca configurável e quatro cores de statu
 ### Primary
 
 - **Marca do projeto** (`--brand`, padrão `oklch(0.546 0.245 262.881)`, o blue-600): botão principal, item ativo do menu (a barra e o texto), contorno do botão `outline`, link, anel de foco e o degradê do login. O projeto a declara num `:root` próprio, no fim do `globals.css`.
-- **Marca suave** (`--brand-muted`, a marca a 8% sobre o branco; no escuro, a 20% transparente): fundo do item ativo do menu, da linha selecionada da tabela, do selo `soft` da marca e da versão no rodapé.
+- **Marca suave** (`--brand-muted`, a marca a 8% sobre o branco; no escuro, a 20% transparente): fundo da linha selecionada da tabela, do selo `soft` da marca e da versão no rodapé.
 
 ### Secondary
 
@@ -259,7 +258,7 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 
 ### Navigation
 
-- **Menu lateral:** fundo cinza da página, só a sombra, sem contorno. Itens de 2.75rem com ícone de 18px a 80% de opacidade, separados por uma linha clara (a borda do menu a 50%), num passo de 49px. Hover em cinza suave. O item ativo tem fundo da marca suave, texto na marca e uma barra de 4px da marca à esquerda.
+- **Menu lateral:** fundo cinza da página, só a sombra, sem contorno. Itens de 2.75rem com ícone de 18px a 80% de opacidade, separados por uma linha clara (a borda do menu a 50%), num passo de 49px. Hover em cinza suave. O item ativo não tem fundo: o ícone e o texto vão na marca, com uma barra de 4px da marca colada na borda esquerda do menu, como no print do Vue. Recolhido, o menu tem 3rem, e a marca e os ícones ficam no centro.
 - **Item sem tela:** apagado, com o selo "Em breve" em cinza.
 - **Celular:** o menu vira gaveta pelo botão da barra superior (44px), e a gaveta tem o X "Fechar menu" no topo.
 

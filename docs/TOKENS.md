@@ -30,7 +30,8 @@ Componente novo usa o token, e não a classe da coluna da esquerda. Os tokens de
 | Botão, selo e aviso `info` | `blue-600`, `blue-500` | `blue-500` | `info` (o `blue-600` nos dois modos) |
 | Texto sobre as cores de status | `text-white` | `text-white` | `success-foreground`, `warning-foreground`, `info-foreground` e `destructive-foreground` |
 | Texto do selo suave de status (o tom a 15% no fundo) | a cor do status | a cor do status | `success-muted-foreground`, `warning-muted-foreground`, `destructive-muted-foreground` e `info-muted-foreground`: no claro, o `-800` do sucesso e do alerta e o `-700` do perigo e da informação; no escuro, os `-400`. Não existe no Admin One, onde o texto na própria cor reprova no AA. É também o texto e o ícone de status sobre o card, como o erro do campo |
-| Item ativo do menu, versão no rodapé | `bg-purple-50`, `text-purple-600` | `bg-purple-900/20`, `text-purple-400` | `brand-muted` e `brand-muted-foreground` |
+| Item ativo do menu | `text-purple-600` e a barra à esquerda (o `bg-purple-50` do código perde a especificidade e não aparece na tela) | `text-purple-400` | `brand-muted-foreground` no texto e no ícone, sem fundo; a barra é o `primary` |
+| Versão no rodapé | `bg-purple-100`, `text-purple-600` | `bg-purple-900/30`, `text-purple-400` | `brand-muted` e `brand-muted-foreground` |
 
 ## Marca
 

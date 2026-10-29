@@ -115,7 +115,7 @@ test('the login page shows the guest card and leads to the dashboard', async ({ 
 
   await expect(page.getByRole('heading', { level: 1, name: 'Entrar' })).toBeVisible();
   await expect(page.getByLabel('Senha')).toBeVisible();
-  await page.getByRole('link', { name: 'Entrar' }).click();
+  await page.getByRole('button', { name: 'Entrar' }).click();
   await expect(page.getByRole('heading', { level: 1, name: 'Resumo Geral' })).toBeVisible();
 });
 

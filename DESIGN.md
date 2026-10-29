@@ -113,6 +113,7 @@ components:
     height: '2.75rem'
     padding: '0 1rem'
   nav-item-active:
+    backgroundColor: '{colors.soft-gray}'
     textColor: '{colors.brand}'
     rounded: '{rounded.lg}'
     height: '2.75rem'
@@ -137,7 +138,7 @@ O escuro é o slate do Admin One, com as mesmas regras: cards um tom abaixo do f
 - Cards brancos de canto bem arredondado (0.9rem) sobre cinza-claro, sem sombra em repouso.
 - Botões retos (0.3rem) ou em pílula, cheios na cor, que escurecem no hover.
 - Campos altos (3rem) com borda escura de verdade, e não o cinza-claro do shadcn.
-- Menu lateral flutuante com o item ativo na cor da marca, em negrito e sem fundo, e uma barra da marca encostada no item.
+- Menu lateral flutuante com o item ativo numa faixa cinza, com o ícone e o texto na cor da marca e em negrito.
 - No celular, a tabela vira uma pilha de cartões com o rótulo antes de cada valor.
 
 ## Colors
@@ -146,7 +147,7 @@ Cinzas frios do Tailwind, uma cor de marca configurável e quatro cores de statu
 
 ### Primary
 
-- **Marca do projeto** (`--brand`, padrão `oklch(0.546 0.245 262.881)`, o blue-600): botão principal, item ativo do menu (a barra e o texto), contorno do botão `outline`, link, anel de foco e o degradê do login. O projeto a declara num `:root` próprio, no fim do `globals.css`.
+- **Marca do projeto** (`--brand`, padrão `oklch(0.546 0.245 262.881)`, o blue-600): botão principal, item ativo do menu (o ícone e o texto), contorno do botão `outline`, link, anel de foco e o degradê do login. O projeto a declara num `:root` próprio, no fim do `globals.css`.
 - **Marca suave** (`--brand-muted`, a marca a 8% sobre o branco; no escuro, a 20% transparente): fundo da linha selecionada da tabela, do selo `soft` da marca e da versão no rodapé.
 
 ### Secondary
@@ -159,7 +160,7 @@ Cinzas frios do Tailwind, uma cor de marca configurável e quatro cores de statu
 - **Cinza da página** (gray-50): o fundo atrás dos cards e a barra superior.
 - **Tinta** (gray-900): o texto. No escuro, slate-100.
 - **Branco do card:** cards e modal. No escuro, o slate-900/70 sobre o slate-800, já calculado.
-- **Cinza suave** (gray-100): botão secundário, hover da linha, fundo do selo neutro, borda do cabeçalho do card. No escuro, slate-700.
+- **Cinza suave** (gray-100): botão secundário, hover da linha, faixa do item ativo do menu, fundo do selo neutro, borda do cabeçalho do card. No escuro, slate-700.
 - **Cinza de apoio** (gray-500): texto secundário, legenda, rodapé. No escuro, slate-400.
 - **Traço do campo** (gray-700): a borda do campo, do checkbox, do radio e do switch. No escuro, slate-500, porque o gray-700 some no card escuro.
 
@@ -258,7 +259,7 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 
 ### Navigation
 
-- **Menu lateral:** fundo cinza da página, só a sombra, sem contorno. Itens de 2.75rem com ícone de 18px a 80% de opacidade, separados por uma linha clara (a borda do menu a 50%), num passo de 49px. Hover em cinza suave. O item ativo não tem fundo: o ícone e o texto vão na marca, o texto em negrito, com uma barra de 4px da marca encostada no item. Recolhido, o menu tem 3rem, e a marca e os ícones ficam no centro.
+- **Menu lateral:** fundo cinza da página, só a sombra, sem contorno. Itens de 2.75rem com ícone de 18px a 80% de opacidade, separados por uma linha clara (a borda do menu a 50%), num passo de 49px. Hover em cinza suave. O item ativo fica numa faixa no cinza do hover, sem barra: o ícone e o texto vão na marca, o texto em negrito. Recolhido, o menu tem 3rem, e a marca e os ícones ficam no centro.
 - **Item sem tela:** apagado, com o selo "Em breve" em cinza.
 - **Celular:** o menu vira gaveta pelo botão da barra superior (44px), e a gaveta tem o X "Fechar menu" no topo.
 

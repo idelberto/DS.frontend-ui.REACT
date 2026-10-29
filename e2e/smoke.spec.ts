@@ -36,6 +36,7 @@ test('the dashboard marks its menu item and shows the coming-soon items', async 
   await page.goto('dashboard/');
 
   await expect(page.getByRole('heading', { level: 1, name: 'Resumo Geral' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Indicadores' })).toBeVisible();
   await expect(page.getByText('Compromissos de Hoje')).toBeVisible();
   await expect(page.getByText(/© \d{4}/)).toBeVisible();
 

@@ -1,8 +1,12 @@
 'use client';
 
-import { Toast } from '@base-ui/react/toast';
+import {
+  Toast,
+  type ToastManagerAddOptions,
+  type UseToastManagerReturnValue,
+} from '@base-ui/react/toast';
 import { CircleAlert, CircleCheck, Info, TriangleAlert, X } from 'lucide-react';
-import type { ComponentType, ReactNode } from 'react';
+import { useMemo, type ComponentType, type ReactNode } from 'react';
 
 type ToastType = 'success' | 'error' | 'warning' | 'info';
 
@@ -40,9 +44,10 @@ function ToastList() {
           <Toast.Title className="text-sm font-semibold" />
           <Toast.Description className="text-sm" />
         </Toast.Content>
+        {/* Sobre a cor cheia do aviso, o anel de foco vai na cor do texto: o da marca sumiria. */}
         <Toast.Close
           aria-label="Fechar"
-          className="shrink-0 rounded-sm p-1 transition-colors hover:bg-current/20"
+          className="shrink-0 rounded-sm p-1 transition-colors outline-none hover:bg-current/20 focus-visible:ring-3 focus-visible:ring-current"
         >
           <X className="size-4" />
         </Toast.Close>
@@ -62,7 +67,11 @@ export function ToastProvider({ children }: ToastProviderProps) {
     <Toast.Provider>
       {children}
       <Toast.Portal>
-        <Toast.Viewport className="fixed top-4 right-4 z-[60] flex w-[min(25rem,calc(100vw-2rem))] flex-col gap-2">
+        {/* O nome padrão da região no Base UI é "Notifications", em inglês. */}
+        <Toast.Viewport
+          aria-label="Avisos"
+          className="fixed top-4 right-4 z-[60] flex w-[min(25rem,calc(100vw-2rem))] flex-col gap-2"
+        >
           <ToastList />
         </Toast.Viewport>
       </Toast.Portal>
@@ -70,4 +79,27 @@ export function ToastProvider({ children }: ToastProviderProps) {
   );
 }
 
-export const useToast = Toast.useToastManager;
+// O erro é anunciado com urgência e fica até a pessoa fechar; os outros somem em 5 s, o padrão do
+// Base UI. Quem chama pode passar outro priority ou timeout.
+const ERROR_DEFAULTS = { priority: 'high', timeout: 0 } as const;
+
+function withErrorDefaults<Data extends object>(
+  options: ToastManagerAddOptions<Data>,
+): ToastManagerAddOptions<Data> {
+  if (options.type === 'error') {
+    return { ...ERROR_DEFAULTS, ...options };
+  }
+  return options;
+}
+
+export function useToast(): UseToastManagerReturnValue {
+  const toastManager = Toast.useToastManager();
+
+  return useMemo(
+    () => ({
+      ...toastManager,
+      add: (options) => toastManager.add(withErrorDefaults(options)),
+    }),
+    [toastManager],
+  );
+}

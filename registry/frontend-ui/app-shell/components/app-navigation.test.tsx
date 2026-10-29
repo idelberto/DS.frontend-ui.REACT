@@ -50,7 +50,10 @@ describe('AppNavigation', () => {
     renderNavigation('/');
 
     expect(screen.queryByRole('link', { name: /Estoque/ })).toBeNull();
-    expect(screen.getByRole('button', { name: 'Estoque' })).toHaveProperty('disabled', true);
+    expect(screen.getByRole('button', { name: 'Estoque, em breve' })).toHaveProperty(
+      'disabled',
+      true,
+    );
     expect(screen.getByText('Em breve')).toBeDefined();
   });
 

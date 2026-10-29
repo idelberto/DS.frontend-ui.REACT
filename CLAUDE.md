@@ -47,6 +47,7 @@ Notas locais, fora do repositório (que é público): `../LOCAL.md`, com onde fi
 - Sem cor de produto: a cor e o logo são de cada projeto, pelo `--brand` e seus derivados no item `theme`. Os componentes usam só tokens semânticos (`bg-primary`, `bg-card`, `text-muted-foreground`), nunca cor crua como `bg-purple-600`. Os derivados da marca viram utilitários: `bg-brand-muted`, `text-brand-muted-foreground`.
 - O tema não carrega fonte: ele usa a variável `--font-sans`, e o projeto carrega a Nunito (`next/font` no Next).
 - O comportamento (teclado, foco, leitor de tela) vem do Base UI; o design system cuida da aparência e da composição. Monte sobre os primitivos do shadcn com Base UI em vez de reimplementá-los.
+- Foco é o anel de 3px na cor cheia: `focus-visible:ring-3 focus-visible:ring-ring`, nunca o `ring-ring/50` do shadcn, que fica em 2,2:1 e reprova no AA. Sobre fundo de cor cheia (aviso, toast), `focus-visible:ring-current`, na cor do texto.
 - Um componente entra quando um projeto precisa dele, e não porque o Admin One tem.
 - O projeto declara a marca num bloco `:root` próprio no fim do `globals.css` (`docs/TOKENS.md`): o `add` do tema reescreve o bloco dele e não mexe nesse.
 - Item não importa nada do Next: quem depende do framework recebe a peça de fora. O `app-shell` recebe o `currentPath` (o `usePathname` do consumidor) e o `renderLink` (o `<Link>`); item sem `href` aparece apagado com "Em breve".

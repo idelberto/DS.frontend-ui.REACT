@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "section-title",
+  "title": "Section title",
+  "description": "O título da página com o ícone redondo e a ação à direita.",
+  "registryDependencies": [
+    "@frontend-ui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/frontend-ui/section-title/components/section-title.tsx",
+      "content": "import type { ComponentType, ReactNode } from 'react';\n\ninterface SectionTitleProps {\n  icon: ComponentType<{ className?: string }>;\n  title: string;\n  // A ação à direita do título, em geral um botão.\n  children?: ReactNode;\n}\n\nexport function SectionTitle({ icon: Icon, title, children }: SectionTitleProps) {\n  return (\n    <div className=\"mb-6 flex flex-wrap items-center justify-between gap-3\">\n      <div className=\"flex min-w-0 items-center gap-3\">\n        <span className=\"flex size-12 shrink-0 items-center justify-center rounded-full bg-card text-card-foreground\">\n          <Icon className=\"size-6\" />\n        </span>\n        <h1 className=\"text-3xl leading-tight\">{title}</h1>\n      </div>\n      {children}\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -48,6 +48,9 @@ Notas locais, fora do repositório (que é público): `../LOCAL.md`, com onde fi
 - O tema não carrega fonte: ele usa a variável `--font-sans`, e o projeto carrega a Nunito (`next/font` no Next).
 - O comportamento (teclado, foco, leitor de tela) vem do Base UI; o design system cuida da aparência e da composição. Monte sobre os primitivos do shadcn com Base UI em vez de reimplementá-los.
 - Um componente entra quando um projeto precisa dele, e não porque o Admin One tem.
+- O projeto declara a marca num bloco `:root` próprio no fim do `globals.css` (`docs/TOKENS.md`): o `add` do tema reescreve o bloco dele e não mexe nesse.
+- Item não importa nada do Next: quem depende do framework recebe a peça de fora. O `app-shell` recebe o `currentPath` (o `usePathname` do consumidor) e o `renderLink` (o `<Link>`); item sem `href` aparece apagado com "Em breve".
+- Os componentes do shadcn em `src/components/ui` entram pelo CLI. O que não passa no lint strict recebe só o ajuste que o lint pede, e o texto de leitor de tela vai para o português, como no BioStar4Life (`sidebar`, `sheet` e `use-mobile` vieram de lá). Com `tooltip`, o `SidebarMenuButton` vira `TooltipTrigger`, que não repassa o `disabled`: item desabilitado vai sem tooltip.
 - A referência visual é o `PTL.BioStar4Life.VUE` (só leitura) e os prints dele. A partir do lote 0.2, o `docs/TOKENS.md` mapeia as classes do Admin One para os tokens.
 - Fora do escopo: Vue e React Native, gráficos, componentes de domínio do Vue (`TablePatients`, `CardBoxAppointment`, `TrialBanner` e os logos) e qualquer coisa do DS.orbit-ui da MediQuo, que é da empresa.
 

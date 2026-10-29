@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-bar",
+  "title": "Footer bar",
+  "description": "O rodapé com o nome, o ano e a versão.",
+  "registryDependencies": [
+    "@frontend-ui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/frontend-ui/footer-bar/components/footer-bar.tsx",
+      "content": "interface FooterBarProps {\n  name: string;\n  version?: string;\n}\n\nexport function FooterBar({ name, version }: FooterBarProps) {\n  const year = new Date().getFullYear();\n\n  return (\n    <footer className=\"flex justify-center px-6 py-4\">\n      <p className=\"flex items-center gap-1.5 rounded-full bg-muted px-4 py-2 text-xs text-muted-foreground\">\n        <span className=\"font-medium\">{name}</span>\n        <span aria-hidden=\"true\">·</span>\n        <span>© {year}</span>\n        {version !== undefined && (\n          <>\n            <span aria-hidden=\"true\">·</span>\n            <span className=\"rounded-full bg-brand-muted px-1.5 py-0.5 font-medium text-brand-muted-foreground\">\n              {version}\n            </span>\n          </>\n        )}\n      </p>\n    </footer>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

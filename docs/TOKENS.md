@@ -28,13 +28,16 @@ Componente novo usa o token, e não a classe da coluna da esquerda. Se o Admin O
 
 ## Marca
 
-A cor do produto não está no Admin One: o template original usa azul, e o BioStar4Life trocou por roxo. Por isso ela é a variável `--brand`, que o projeto troca no próprio `:root`:
+A cor do produto não está no Admin One: o template original usa azul, e o BioStar4Life trocou por roxo. Por isso ela é a variável `--brand`, que o projeto declara num bloco `:root` próprio, no fim do `globals.css`:
 
 ```css
+/* Marca do projeto: fora do bloco do tema, que o shadcn add reescreve. */
 :root {
   --brand: oklch(0.558 0.288 302.321); /* purple-600 do BioStar4Life */
 }
 ```
+
+Rodar o `shadcn add @frontend-ui/theme` de novo atualiza o `:root` do tema e não mexe nesse bloco, que vence por vir depois (conferido com o shadcn 4.23.0 em 28/10/2026). Trocar o `--brand` dentro do bloco do tema não serve: o próximo `add` volta o azul.
 
 O padrão do tema é o `blue-600`, o azul do Admin One original. Os derivados acompanham, nos dois modos:
 

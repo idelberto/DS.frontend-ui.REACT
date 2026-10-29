@@ -3,6 +3,7 @@ import Link from 'next/link';
 const PAGES = [
   { href: '/', label: 'Início' },
   { href: '/theme/', label: 'Tema' },
+  { href: '/dashboard/', label: 'Painel' },
 ] as const;
 
 export function SiteHeader() {

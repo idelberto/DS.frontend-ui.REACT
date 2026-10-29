@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
 import { Button } from '@/registry/frontend-ui/button/ui/button';
+import { Modal, ModalClose } from '@/registry/frontend-ui/modal/components/modal';
 import { PillTag } from '@/registry/frontend-ui/pill-tag/components/pill-tag';
 import {
   Table,
@@ -24,6 +25,7 @@ import {
   TableSelectRowCheckbox,
   useTableSelection,
 } from '@/registry/frontend-ui/table/components/table-selection';
+import { useToast } from '@/registry/frontend-ui/toast/components/toast';
 
 import { PATIENTS, type Patient } from './patients';
 
@@ -42,8 +44,28 @@ function renderPageLink(href: string, props: PageLinkProps) {
   return <Link href={href} {...props} />;
 }
 
+const KEPT_HISTORY = 'O histórico de atendimentos continua guardado.';
+
+// A vitrine não tem dados de verdade: a confirmação mostra o padrão, e o aviso diz que nada saiu.
+const DEMO_DELETE_NOTICE = 'Exemplo da vitrine: nenhum paciente foi excluído.';
+
+function selectionLabel(count: number): string {
+  if (count === 1) {
+    return '1 selecionado';
+  }
+  return `${String(count)} selecionados`;
+}
+
+function bulkDeleteDescription(count: number): string {
+  if (count === 1) {
+    return '1 paciente sai da lista de pacientes.';
+  }
+  return `${String(count)} pacientes saem da lista de pacientes.`;
+}
+
 function SelectionBar() {
   const { selectedIds, clearSelection } = useTableSelection();
+  const toastManager = useToast();
 
   if (selectedIds.length === 0) {
     return null;
@@ -51,15 +73,68 @@ function SelectionBar() {
 
   return (
     <div className="flex flex-wrap items-center gap-3 border-b px-3 py-3 lg:px-6">
-      <span className="font-semibold">{selectedIds.length} selecionado(s)</span>
-      <Button variant="destructive" size="sm" shape="pill">
-        <Trash2 />
-        Excluir selecionados
-      </Button>
+      <span className="font-semibold">{selectionLabel(selectedIds.length)}</span>
+      <Modal
+        title="Excluir pacientes?"
+        description={bulkDeleteDescription(selectedIds.length)}
+        trigger={
+          <Button variant="destructive" size="sm" shape="pill">
+            <Trash2 />
+            Excluir selecionados
+          </Button>
+        }
+        footer={
+          <>
+            <ModalClose
+              render={<Button variant="destructive" />}
+              onClick={() => {
+                clearSelection();
+                toastManager.add({ title: DEMO_DELETE_NOTICE, type: 'info' });
+              }}
+            >
+              Excluir
+            </ModalClose>
+            <ModalClose render={<Button variant="outline" />}>Cancelar</ModalClose>
+          </>
+        }
+      >
+        <p className="text-muted-foreground">{KEPT_HISTORY}</p>
+      </Modal>
       <Button variant="ghost" size="sm" onClick={clearSelection}>
         Limpar seleção
       </Button>
     </div>
+  );
+}
+
+function DeletePatientButton({ patient }: { patient: Patient }) {
+  const toastManager = useToast();
+
+  return (
+    <Modal
+      title="Excluir paciente?"
+      description={`${patient.name} sai da lista de pacientes.`}
+      trigger={
+        <Button variant="ghost" size="icon-sm" aria-label={`Excluir ${patient.name}`}>
+          <Trash2 className="text-destructive" />
+        </Button>
+      }
+      footer={
+        <>
+          <ModalClose
+            render={<Button variant="destructive" />}
+            onClick={() => {
+              toastManager.add({ title: DEMO_DELETE_NOTICE, type: 'info' });
+            }}
+          >
+            Excluir
+          </ModalClose>
+          <ModalClose render={<Button variant="outline" />}>Cancelar</ModalClose>
+        </>
+      }
+    >
+      <p className="text-muted-foreground">{KEPT_HISTORY}</p>
+    </Modal>
   );
 }
 
@@ -91,9 +166,7 @@ function PatientRow({ patient }: { patient: Patient }) {
         )}
       </TableCell>
       <TableCell className="lg:w-12">
-        <Button variant="ghost" size="icon-sm" aria-label={`Excluir ${patient.name}`}>
-          <Trash2 className="text-destructive" />
-        </Button>
+        <DeletePatientButton patient={patient} />
       </TableCell>
     </TableRow>
   );

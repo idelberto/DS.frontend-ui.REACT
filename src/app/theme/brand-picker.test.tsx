@@ -21,6 +21,15 @@ describe('BrandPicker', () => {
     expect(screen.getByRole('radio', { name: PURPLE.name })).toHaveProperty('ariaChecked', 'true');
   });
 
+  it('moves to the next brand with the arrow key', async () => {
+    render(<BrandPicker />);
+    await userEvent.click(screen.getByRole('radio', { name: BRAND_PRESETS[0].name }));
+
+    await userEvent.keyboard('{ArrowRight}');
+
+    expect(document.documentElement.style.getPropertyValue('--brand')).toBe(PURPLE.value);
+  });
+
   it('restores the theme brand when the page leaves', async () => {
     const { unmount } = render(<BrandPicker />);
     await userEvent.click(screen.getByRole('radio', { name: PURPLE.name }));

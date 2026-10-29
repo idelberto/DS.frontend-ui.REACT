@@ -1,4 +1,4 @@
-import { ChevronDown, Gem, LogOut, MapPin } from 'lucide-react';
+import { Gem, LogOut, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
@@ -53,12 +53,16 @@ function ShowcaseSidebarFooter() {
 
 function ShowcaseUser() {
   return (
+    // Sem menu de usuário na vitrine: sem a seta, que prometia um menu que não abre. No celular, o
+    // nome fica só para o leitor de tela, que não lia nada além das iniciais.
     <div className="flex items-center gap-2 px-2 text-sm font-medium">
-      <span className="flex size-8 items-center justify-center rounded-full bg-muted text-xs font-bold">
+      <span
+        aria-hidden="true"
+        className="flex size-8 items-center justify-center rounded-full bg-muted text-xs font-bold"
+      >
         MS
       </span>
-      <span className="hidden sm:inline">Maria Souza</span>
-      <ChevronDown className="size-4 text-muted-foreground" />
+      <span className="sr-only sm:not-sr-only">Maria Souza</span>
     </div>
   );
 }

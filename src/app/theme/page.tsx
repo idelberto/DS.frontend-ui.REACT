@@ -1,6 +1,9 @@
+import { Palette } from 'lucide-react';
 import type { Metadata } from 'next';
 
-import { SiteHeader } from '@/components/site-header';
+import { ShowcaseShell } from '@/components/showcase-shell';
+import { SectionMain } from '@/registry/frontend-ui/section-main/components/section-main';
+import { SectionTitle } from '@/registry/frontend-ui/section-title/components/section-title';
 
 import { BrandPicker } from './brand-picker';
 import { ThemeSample } from './theme-sample';
@@ -47,17 +50,15 @@ function Swatch({ token }: { token: string }) {
 
 export default function ThemePage() {
   return (
-    <>
-      <SiteHeader />
-      <main className="mx-auto flex max-w-5xl flex-col gap-10 px-6 py-12">
-        <header className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold">Tema</h1>
-          <p className="text-muted-foreground">
-            O item <code>@frontend-ui/theme</code> traz as cores do claro e do escuro do Admin One.
-            A marca é a variável <code>--brand</code>: o projeto troca o valor dela, e os derivados
-            acompanham.
-          </p>
-        </header>
+    // Dentro do shell, como as outras páginas do menu: o "Tema" do menu levava a outro layout.
+    <ShowcaseShell>
+      <SectionMain>
+        <SectionTitle icon={Palette} title="Tema" />
+        <p className="max-w-prose text-pretty text-muted-foreground">
+          O item <code>@frontend-ui/theme</code> traz as cores do claro e do escuro do Admin One. A
+          marca é a variável <code>--brand</code>: o projeto troca o valor dela, e os derivados
+          acompanham.
+        </p>
 
         <section className="flex flex-col gap-3">
           <h2 className="text-xl font-semibold">Marca</h2>
@@ -65,11 +66,12 @@ export default function ThemePage() {
         </section>
 
         <section className="grid gap-4 md:grid-cols-2">
-          <div className="flex flex-col gap-2">
+          {/* O min-w-0 deixa a amostra encolher no celular: sem ele, a página rolava de lado a 320px. */}
+          <div className="flex min-w-0 flex-col gap-2">
             <h2 className="text-xl font-semibold">Claro</h2>
             <ThemeSample />
           </div>
-          <div className="dark flex flex-col gap-2">
+          <div className="dark flex min-w-0 flex-col gap-2">
             <h2 className="text-xl font-semibold">Escuro</h2>
             <ThemeSample />
           </div>
@@ -94,7 +96,9 @@ export default function ThemePage() {
                   <td className="w-1/3 py-1 pr-4">
                     <Swatch token={token} />
                   </td>
-                  <td className="dark w-1/3 py-1">
+                  {/* O fundo do escuro atrás da amostra: a cor transparente (brand-muted) muda
+                      com o que está por trás. */}
+                  <td className="dark w-1/3 bg-background px-2 py-1">
                     <Swatch token={token} />
                   </td>
                 </tr>
@@ -129,7 +133,7 @@ export default function ThemePage() {
           <p className="text-2xl font-semibold">Semibold: Gestão de clínicas estéticas</p>
           <p className="text-2xl font-bold">Bold: Gestão de clínicas estéticas</p>
         </section>
-      </main>
-    </>
+      </SectionMain>
+    </ShowcaseShell>
   );
 }

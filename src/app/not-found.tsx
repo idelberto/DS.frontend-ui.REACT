@@ -1,8 +1,11 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { ShowcaseGuestBrand } from '@/components/showcase-guest-brand';
 import { buttonVariants } from '@/registry/frontend-ui/button/ui/button';
 import { GuestLayout } from '@/registry/frontend-ui/guest-layout/components/guest-layout';
+
+export const metadata: Metadata = { title: 'Página não encontrada' };
 
 export default function NotFound() {
   return (

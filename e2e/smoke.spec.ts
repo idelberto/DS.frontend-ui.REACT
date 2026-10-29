@@ -90,10 +90,10 @@ test('the patients list selects rows and moves between pages', async ({ page, is
     // No celular o cabeçalho some, com o "selecionar todas": cada linha vira um cartão com a caixa dela.
     await expect(page.getByRole('columnheader', { name: 'CPF' })).toBeHidden();
     await page.getByRole('checkbox', { name: 'Selecionar Ana Carolina Silva Santos' }).click();
-    await expect(page.getByText('1 selecionado(s)')).toBeVisible();
+    await expect(page.getByText('1 selecionado')).toBeVisible();
   } else {
     await page.getByRole('checkbox', { name: 'Selecionar todas as linhas' }).click();
-    await expect(page.getByText('8 selecionado(s)')).toBeVisible();
+    await expect(page.getByText('8 selecionados')).toBeVisible();
   }
 
   await page.getByRole('link', { name: 'Página 2' }).click();
@@ -115,7 +115,7 @@ test('the login page shows the guest card and leads to the dashboard', async ({ 
 
   await expect(page.getByRole('heading', { level: 1, name: 'Entrar' })).toBeVisible();
   await expect(page.getByLabel('Senha')).toBeVisible();
-  await page.getByRole('link', { name: 'Entrar' }).click();
+  await page.getByRole('button', { name: 'Entrar' }).click();
   await expect(page.getByRole('heading', { level: 1, name: 'Resumo Geral' })).toBeVisible();
 });
 

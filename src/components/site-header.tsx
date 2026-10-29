@@ -12,7 +12,7 @@ export function SiteHeader() {
     <header className="border-b bg-card">
       <nav
         aria-label="Vitrine"
-        className="mx-auto flex max-w-5xl items-center gap-6 px-6 py-3 text-sm font-semibold"
+        className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 gap-y-2 px-6 py-3 text-sm font-semibold"
       >
         <span className="text-base font-bold">frontend-ui</span>
         {PAGES.map((page) => (

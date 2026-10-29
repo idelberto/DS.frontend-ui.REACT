@@ -19,7 +19,8 @@ Design system dos meus projetos React: o visual do Admin One, o template do Vue 
 | Acessibilidade | WCAG 2.2 AA. Onde o Admin One não passa, como o texto branco sobre as cores de status, o tom muda o mínimo necessário, e a fidelidade cede só nesse ponto (28/10) |
 | Contexto de design | `PRODUCT.md` e `DESIGN.md` na raiz, versionados, para o impeccable e os agentes. A `.impeccable/` fica fora do git e do prettier, como a `.claude/` (28/10) |
 | Indicadores do painel | Um card só, com o cabeçalho do `card-box` e uma ação para o grupo, e os indicadores lado a lado com divisória: o item `stat-group`. Desvio pedido em relação aos três cards separados (`CardBoxWidget`) do Admin One (28/10) |
-| Item ativo do menu | Sem fundo: o ícone e o texto na marca, o texto em negrito, e a barra da marca encostada no item. A barra colada na borda do menu (lote 0.9) ficou solta demais (28/10) |
+| Item ativo do menu | Numa faixa no cinza do hover (`sidebar-accent`), sem barra: o ícone e o texto na marca, o texto em negrito. Escolhida entre quatro variantes; a barra sem fundo do lote 0.10 marcava pouco (29/10) |
+| Unidade no menu | Na segunda linha do nome da marca, no lugar do slogan, sem fundo. O bloco cinza abaixo da marca chamava mais atenção que ela (29/10) |
 
 No projeto que consome:
 
@@ -63,6 +64,7 @@ Um branch e um PR por lote. Ao fim de cada um, paro com a evidência e espero o 
 8. **0.8 Indicadores:** item `stat-group`, os indicadores do painel num card só, e a página Painel com ele.
 9. **0.9 Menu lateral:** o item ativo como no Admin One e o menu recolhido alinhado, com a marca e os ícones no centro.
 10. **0.10 Item ativo:** a barra volta para o item, e o texto fica em negrito.
+11. **0.11 Menu:** o item ativo numa faixa cinza, sem barra; a unidade na segunda linha da marca, na vitrine; e o "Sair" alinhado com os ícones do menu.
 
 Os lotes 0.4 a 0.6 seguem a ordem em que o BioStar4Life vai precisar deles: a Fase 1 começa por pacientes, com formulário e lista.
 

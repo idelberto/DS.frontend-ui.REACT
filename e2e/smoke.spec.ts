@@ -53,11 +53,12 @@ test('the desktop menu collapses to icons', async ({ page, isMobile }) => {
   await page.goto('dashboard/');
   const sidebar = page.locator('[data-slot="sidebar"][data-state]');
   await expect(sidebar).toHaveAttribute('data-state', 'expanded');
+  await expect(page.getByText('Unidade Centro')).toBeVisible();
 
   await page.getByRole('button', { name: 'Abrir ou fechar o menu' }).first().click();
 
   await expect(sidebar).toHaveAttribute('data-state', 'collapsed');
-  await expect(page.getByText('Vitrine do design system')).toBeHidden();
+  await expect(page.getByText('Unidade Centro')).toBeHidden();
 });
 
 test('the forms page links labels to fields and toggles the checkbox', async ({ page }) => {

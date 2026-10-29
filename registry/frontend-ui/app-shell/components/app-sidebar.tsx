@@ -5,7 +5,7 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from '@/compone
 import { AppSidebarClose } from './app-sidebar-close';
 
 interface AppSidebarProps {
-  // A marca e, abaixo dela, o seletor de unidade, se o projeto tiver.
+  // A marca e, se o projeto tiver, a unidade na segunda linha do nome.
   header: ReactNode;
   // O menu: em geral o AppNavigation.
   children: ReactNode;
@@ -32,8 +32,12 @@ export function AppSidebar({ header, children, footer }: AppSidebarProps) {
       <SidebarContent className="px-2 py-2 group-data-[collapsible=icon]:px-0">
         {children}
       </SidebarContent>
+      {/* O px-4 soma o px-2 do conteúdo e o p-2 do grupo: o ícone do "Sair" cai na coluna dos ícones
+          do menu, e não 8px à esquerda. Recolhido, o conteúdo perde o px-2, e o rodapé também. */}
       {footer !== undefined && (
-        <SidebarFooter className="border-t border-sidebar-border px-2 py-3">{footer}</SidebarFooter>
+        <SidebarFooter className="border-t border-sidebar-border px-4 py-3 group-data-[collapsible=icon]:px-2">
+          {footer}
+        </SidebarFooter>
       )}
     </Sidebar>
   );

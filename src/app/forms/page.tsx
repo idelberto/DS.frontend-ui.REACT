@@ -84,8 +84,11 @@ export default function FormsPage() {
             </label>
 
             <div className="flex flex-col gap-2">
-              <span className="font-bold">Foto</span>
-              <FileUpload name="photo" accept="image/*" />
+              {/* Dois rótulos no mesmo input: o leitor de tela ouve "Foto, Escolher arquivo". */}
+              <label htmlFor="photo" className="font-bold">
+                Foto
+              </label>
+              <FileUpload id="photo" name="photo" accept="image/*" />
             </div>
           </CardBoxBody>
           <CardBoxFooter>

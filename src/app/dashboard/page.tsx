@@ -60,7 +60,8 @@ const STATS: Stat[] = [
 
 function SettingsButton({ label }: { label: string }) {
   return (
-    <Button variant="secondary" size="icon-sm" aria-label={label}>
+    // O ícone simples do Admin One, sem fundo em repouso.
+    <Button variant="ghost" size="icon-sm" className="text-muted-foreground" aria-label={label}>
       <Settings />
     </Button>
   );
@@ -115,7 +116,7 @@ export default function DashboardPage() {
           />
           <CardBoxBody className="flex flex-col items-center gap-3 py-12 text-muted-foreground">
             <CalendarClock className="size-8" />
-            <p>Nenhum compromisso agendado para hoje</p>
+            <p className="text-pretty">Nenhum compromisso agendado para hoje</p>
           </CardBoxBody>
         </CardBox>
       </SectionMain>

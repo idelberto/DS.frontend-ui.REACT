@@ -31,10 +31,10 @@ interface AppNavigationProps {
   renderLink?: (href: string) => ReactElement;
 }
 
-// O item ativo sem fundo: o ícone e o texto na marca, o texto em negrito e a barra da marca encostada
-// no item, dentro do botão (o overflow-hidden do shadcn corta o que passa da borda dele).
+// O item ativo numa faixa cinza, a do hover, sem barra: a marca fica só no ícone e no texto, que vai
+// em negrito.
 const ITEM_CLASS =
-  'relative h-11 gap-3 px-4 font-medium [&_svg]:size-[18px] [&_svg]:opacity-80 data-active:bg-transparent data-active:font-bold data-active:text-brand-muted-foreground data-active:hover:bg-sidebar-accent data-active:hover:text-brand-muted-foreground data-active:[&_svg]:opacity-100 data-active:before:absolute data-active:before:top-1/2 data-active:before:left-0 data-active:before:h-7 data-active:before:w-1 data-active:before:-translate-y-1/2 data-active:before:rounded-r-full data-active:before:bg-primary';
+  'h-11 gap-3 px-4 font-medium [&_svg]:size-[18px] [&_svg]:opacity-80 data-active:bg-sidebar-accent data-active:font-bold data-active:text-brand-muted-foreground data-active:hover:bg-sidebar-accent data-active:hover:text-brand-muted-foreground data-active:[&_svg]:opacity-100';
 
 function renderAnchor(href: string): ReactElement {
   return <a href={href} />;

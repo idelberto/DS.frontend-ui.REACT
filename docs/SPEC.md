@@ -18,6 +18,7 @@ Design system dos meus projetos React: o visual do Admin One, o template do Vue 
 | Modo escuro | As variáveis do escuro entram com o tema, no lote 0.2. Nenhum projeto liga o botão até pedir |
 | Acessibilidade | WCAG 2.2 AA. Onde o Admin One não passa, como o texto branco sobre as cores de status, o tom muda o mínimo necessário, e a fidelidade cede só nesse ponto (28/10) |
 | Contexto de design | `PRODUCT.md` e `DESIGN.md` na raiz, versionados, para o impeccable e os agentes. A `.impeccable/` fica fora do git e do prettier, como a `.claude/` (28/10) |
+| Indicadores do painel | Um card só, com o cabeçalho do `card-box` e uma ação para o grupo, e os indicadores lado a lado com divisória: o item `stat-group`. Desvio pedido em relação aos três cards separados (`CardBoxWidget`) do Admin One (28/10) |
 
 No projeto que consome:
 
@@ -58,6 +59,7 @@ Um branch e um PR por lote. Ao fim de cada um, paro com a evidência e espero o 
    - Estados de carregando, vazio e erro, trazidos do BioStar4Life.
 6. **0.6 Visitante:** layout de login e as telas sem sessão.
 7. **0.7 Revisão de design:** as correções da revisão com o impeccable de 28/10 (acessibilidade, consistência e acabamento, sem perder o visual do Admin One). É a exceção ao um PR por lote: seis PRs pequenos, com o número do lote, um por assunto (contraste, foco e teclado, shell e tabela, modo escuro, acabamento e vitrine). O relatório e os prints ficam fora do repositório, em `../evidencias/revisao-impeccable/`.
+8. **0.8 Indicadores:** item `stat-group`, os indicadores do painel num card só, e a página Painel com ele.
 
 Os lotes 0.4 a 0.6 seguem a ordem em que o BioStar4Life vai precisar deles: a Fase 1 começa por pacientes, com formulário e lista.
 

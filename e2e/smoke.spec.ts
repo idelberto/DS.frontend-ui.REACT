@@ -58,3 +58,26 @@ test('the desktop menu collapses to icons', async ({ page, isMobile }) => {
   await expect(sidebar).toHaveAttribute('data-state', 'collapsed');
   await expect(page.getByText('Vitrine do design system')).toBeHidden();
 });
+
+test('the forms page links labels to fields and toggles the checkbox', async ({ page }) => {
+  await page.goto('forms/');
+
+  await expect(page.getByLabel('Telefone')).toBeVisible();
+  await expect(page.getByText('CPF inválido: confira os 11 dígitos.')).toBeVisible();
+  const reminder = page.getByRole('checkbox', { name: 'Lembrete por SMS' });
+  await reminder.click();
+  await expect(reminder).toBeChecked();
+});
+
+test('the interface page opens the modal and shows a toast', async ({ page }) => {
+  await page.goto('ui/');
+
+  await page.getByRole('button', { name: 'Excluir paciente' }).click();
+  const dialog = page.getByRole('dialog', { name: 'Excluir paciente?' });
+  await expect(dialog).toBeVisible();
+  await dialog.getByRole('button', { name: 'Cancelar' }).click();
+  await expect(dialog).toBeHidden();
+
+  await page.getByRole('button', { name: 'Aviso de sucesso' }).click();
+  await expect(page.getByText('Paciente salvo.')).toBeVisible();
+});

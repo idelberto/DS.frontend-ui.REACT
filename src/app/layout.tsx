@@ -3,6 +3,7 @@ import { Nunito } from 'next/font/google';
 import type { ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
+import { ToastProvider } from '@/registry/frontend-ui/toast/components/toast';
 
 import './globals.css';
 
@@ -20,7 +21,9 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-BR" className={cn('font-sans', nunito.variable)}>
-      <body>{children}</body>
+      <body>
+        <ToastProvider>{children}</ToastProvider>
+      </body>
     </html>
   );
 }

@@ -24,6 +24,10 @@ Componente novo usa o token, e não a classe da coluna da esquerda. Se o Admin O
 | Texto do item do menu (`.aside-menu-item`) | `text-gray-700` | `text-slate-300` | `sidebar-foreground` |
 | Hover do item do menu | `bg-gray-100/80` | `bg-slate-800` | `sidebar-accent` |
 | Borda do menu | `border-gray-200/80` | `border-slate-800/80` | `sidebar-border` |
+| Botão, selo e aviso `success` | `emerald-600` (botão), `emerald-500` (selo, aviso) | `emerald-500` | `success` (no claro, o `-600` do botão para os três) |
+| Botão, selo e aviso `warning` | `yellow-600`, `yellow-500` | `yellow-500` | `warning` |
+| Botão, selo e aviso `info` | `blue-600`, `blue-500` | `blue-500` | `info` |
+| Texto sobre as cores de status | `text-white` | `text-white` | `success-foreground`, `warning-foreground`, `info-foreground` e `destructive-foreground` |
 | Item ativo do menu, versão no rodapé | `bg-purple-50`, `text-purple-600` | `bg-purple-900/20`, `text-purple-400` | `brand-muted` e `brand-muted-foreground` |
 
 ## Marca

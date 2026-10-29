@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "title": "Input",
+  "description": "O campo do Admin One no lugar do input do shadcn, e o campo com ícone (InputIcon).",
+  "registryDependencies": [
+    "@frontend-ui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/frontend-ui/input/ui/input.tsx",
+      "content": "import { Input as InputPrimitive } from '@base-ui/react/input';\nimport type { ComponentProps } from 'react';\n\nimport { cn } from '@/lib/utils';\n\nfunction Input({ className, type, ...props }: ComponentProps<'input'>) {\n  return (\n    <InputPrimitive\n      type={type}\n      data-slot=\"input\"\n      className={cn(\n        'h-12 w-full min-w-0 rounded-sm border border-input bg-card px-3 py-2 text-base transition-colors outline-none file:inline-flex file:h-8 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:bg-background',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Input };\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/frontend-ui/input/ui/input-icon.tsx",
+      "content": "import type { ComponentProps, ComponentType } from 'react';\n\nimport { Input } from '@/registry/frontend-ui/input/ui/input';\nimport { cn } from '@/lib/utils';\n\ninterface InputIconProps extends ComponentProps<typeof Input> {\n  icon: ComponentType<{ className?: string }>;\n}\n\nfunction InputIcon({ icon: Icon, className, ...props }: InputIconProps) {\n  return (\n    <div className=\"relative\">\n      <Icon className=\"pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-muted-foreground\" />\n      <Input className={cn('pl-10', className)} {...props} />\n    </div>\n  );\n}\n\nexport { InputIcon };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

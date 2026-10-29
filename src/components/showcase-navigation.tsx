@@ -3,9 +3,11 @@
 import {
   CalendarDays,
   LayoutDashboard,
+  LayoutTemplate,
   Palette,
   Receipt,
   Sparkles,
+  SquarePen,
   Stethoscope,
   Users,
 } from 'lucide-react';
@@ -23,6 +25,8 @@ const SHOWCASE_NAVIGATION: NavigationGroup[] = [
     label: null,
     items: [
       { id: 'dashboard', label: 'Painel', icon: LayoutDashboard, href: '/dashboard/' },
+      { id: 'forms', label: 'Formulários', icon: SquarePen, href: '/forms/' },
+      { id: 'ui', label: 'Interface', icon: LayoutTemplate, href: '/ui/' },
       { id: 'theme', label: 'Tema', icon: Palette, href: '/theme/' },
     ],
   },

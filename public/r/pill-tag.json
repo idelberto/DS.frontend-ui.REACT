@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pill-tag",
+  "title": "Pill tag",
+  "description": "O selo do Admin One, cheio ou suave, nas cores de status.",
+  "registryDependencies": [
+    "@frontend-ui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/frontend-ui/pill-tag/components/pill-tag.tsx",
+      "content": "import { cva, type VariantProps } from 'class-variance-authority';\nimport type { ComponentProps, ComponentType } from 'react';\n\nimport { cn } from '@/lib/utils';\n\nconst pillTagVariants = cva(\n  'inline-flex items-center gap-1.5 rounded-full border leading-none font-semibold whitespace-nowrap [&_svg]:shrink-0',\n  {\n    variants: {\n      tone: {\n        brand: '',\n        success: '',\n        warning: '',\n        danger: '',\n        info: '',\n        neutral: '',\n      },\n      variant: {\n        solid: '',\n        // Fundo claro e texto na cor: o status dentro de uma tabela.\n        soft: 'border-transparent',\n      },\n      size: {\n        default: 'px-4 py-1.5 text-sm [&_svg]:size-4',\n        sm: 'px-3 py-1 text-xs [&_svg]:size-3.5',\n      },\n    },\n    compoundVariants: [\n      {\n        variant: 'solid',\n        tone: 'brand',\n        className: 'border-primary bg-primary text-primary-foreground',\n      },\n      {\n        variant: 'solid',\n        tone: 'success',\n        className: 'border-success bg-success text-success-foreground',\n      },\n      {\n        variant: 'solid',\n        tone: 'warning',\n        className: 'border-warning bg-warning text-warning-foreground',\n      },\n      {\n        variant: 'solid',\n        tone: 'danger',\n        className: 'border-destructive bg-destructive text-destructive-foreground',\n      },\n      { variant: 'solid', tone: 'info', className: 'border-info bg-info text-info-foreground' },\n      {\n        variant: 'solid',\n        tone: 'neutral',\n        className: 'border-foreground bg-foreground text-background',\n      },\n      { variant: 'soft', tone: 'brand', className: 'bg-brand-muted text-brand-muted-foreground' },\n      { variant: 'soft', tone: 'success', className: 'bg-success/15 text-success' },\n      { variant: 'soft', tone: 'warning', className: 'bg-warning/15 text-warning' },\n      { variant: 'soft', tone: 'danger', className: 'bg-destructive/15 text-destructive' },\n      { variant: 'soft', tone: 'info', className: 'bg-info/15 text-info' },\n      { variant: 'soft', tone: 'neutral', className: 'bg-muted text-muted-foreground' },\n    ],\n    defaultVariants: {\n      tone: 'brand',\n      variant: 'solid',\n      size: 'default',\n    },\n  },\n);\n\ninterface PillTagProps extends ComponentProps<'span'>, VariantProps<typeof pillTagVariants> {\n  icon?: ComponentType<{ className?: string }>;\n}\n\nexport function PillTag({\n  tone,\n  variant,\n  size,\n  icon: Icon,\n  className,\n  children,\n  ...props\n}: PillTagProps) {\n  return (\n    <span className={cn(pillTagVariants({ tone, variant, size }), className)} {...props}>\n      {Icon !== undefined && <Icon />}\n      {children}\n    </span>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

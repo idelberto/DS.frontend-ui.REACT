@@ -50,7 +50,7 @@ const TONES = [
 export default function UiPage() {
   return (
     <ShowcaseShell>
-      <SectionMain className="flex flex-col gap-6">
+      <SectionMain>
         <SectionTitle icon={LayoutTemplate} title="Interface" />
 
         <CardBox>

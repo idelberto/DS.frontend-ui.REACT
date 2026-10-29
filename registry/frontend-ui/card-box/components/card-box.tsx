@@ -35,11 +35,12 @@ export function CardBoxBody({ className, ...props }: ComponentProps<'div'>) {
   return <div data-slot="card-box-body" className={cn('flex-1 p-6', className)} {...props} />;
 }
 
+// Os botões à direita, com o principal por último, na ponta. O Admin One os põe à esquerda.
 export function CardBoxFooter({ className, ...props }: ComponentProps<'footer'>) {
   return (
     <footer
       data-slot="card-box-footer"
-      className={cn('flex flex-wrap gap-3 p-6 pt-0', className)}
+      className={cn('flex flex-wrap justify-end gap-3 p-6 pt-0', className)}
       {...props}
     />
   );

@@ -50,6 +50,8 @@ O padrão do tema é o `blue-600`, o azul do Admin One original. Os derivados ac
 - `brand-muted` é a marca a 8% sobre o branco no claro e a 20% transparente no escuro (o `purple-50` e o `purple-900/20`).
 - `brand-muted-foreground` é a marca no claro e a marca a 60% com branco no escuro (o `purple-400`).
 
+O degradê do `guest-layout` (o `purple-400 → pink-500 → red-500` do Admin One) sai da marca: a marca mais clara no começo e com o matiz girado 60° no fim, pela cor relativa do CSS (`oklch(from var(--brand) ...)`, Chrome 119, Safari 18 e Firefox 128 em diante). No escuro, os cinzas do tema (`muted`, `sidebar` e `background`, o `slate-700 → slate-900 → slate-800`).
+
 O degradê do logo e do indicador de item ativo (`from-purple-600 to-pink-600`) é da marca do BioStar4Life, e não do Admin One: fica com o projeto.
 
 ## Raio

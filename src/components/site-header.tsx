@@ -4,6 +4,7 @@ const PAGES = [
   { href: '/', label: 'Início' },
   { href: '/theme/', label: 'Tema' },
   { href: '/dashboard/', label: 'Painel' },
+  { href: '/login/', label: 'Login' },
 ] as const;
 
 export function SiteHeader() {

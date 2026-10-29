@@ -383,6 +383,19 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "guest-layout",
+      "type": "registry:component",
+      "title": "Guest layout",
+      "description": "A tela cheia do Admin One para as páginas sem sessão (login, senha, erro): o card no centro, sobre o degradê feito da cor da marca.",
+      "registryDependencies": ["@frontend-ui/theme"],
+      "files": [
+        {
+          "path": "registry/frontend-ui/guest-layout/components/guest-layout.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

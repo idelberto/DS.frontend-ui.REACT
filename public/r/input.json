@@ -14,7 +14,7 @@
     },
     {
       "path": "registry/frontend-ui/input/ui/input-icon.tsx",
-      "content": "import type { ComponentProps, ComponentType } from 'react';\n\nimport { Input } from '@/registry/frontend-ui/input/ui/input';\nimport { cn } from '@/lib/utils';\n\ninterface InputIconProps extends ComponentProps<typeof Input> {\n  icon: ComponentType<{ className?: string }>;\n}\n\nfunction InputIcon({ icon: Icon, className, ...props }: InputIconProps) {\n  return (\n    <div className=\"relative\">\n      <Icon className=\"pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-muted-foreground\" />\n      <Input className={cn('pl-10', className)} {...props} />\n    </div>\n  );\n}\n\nexport { InputIcon };\n",
+      "content": "import type { ComponentProps, ComponentType } from 'react';\n\nimport { Input } from '@/registry/frontend-ui/input/ui/input';\nimport { cn } from '@/lib/utils';\n\ninterface InputIconProps extends ComponentProps<typeof Input> {\n  icon: ComponentType<{ className?: string }>;\n}\n\nfunction InputIcon({ icon: Icon, className, ...props }: InputIconProps) {\n  return (\n    <div className=\"relative\">\n      <Icon className=\"pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground\" />\n      <Input className={cn('pl-10', className)} {...props} />\n    </div>\n  );\n}\n\nexport { InputIcon };\n",
       "type": "registry:ui"
     }
   ],

@@ -30,7 +30,8 @@ export function FileUpload({
       <label
         className={cn(
           buttonVariants(),
-          'cursor-pointer has-focus-visible:ring-3 has-focus-visible:ring-ring',
+          // Desabilitado, o label fica como o botão desabilitado: o disabled vai só no input.
+          'cursor-pointer has-focus-visible:ring-3 has-focus-visible:ring-ring has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-70',
           fileName !== null && 'rounded-r-none',
         )}
       >

@@ -27,11 +27,11 @@ export function ForgotPasswordForm() {
       <FormField label="E-mail">
         <InputIcon icon={Mail} name="email" type="email" autoComplete="email" />
       </FormField>
-      <div className="flex flex-wrap items-center gap-3">
-        <Button type="submit">Enviar link</Button>
+      <div className="flex flex-wrap items-center justify-end gap-3">
         <Link href="/login/" className={buttonVariants({ variant: 'link' })}>
           Voltar para o login
         </Link>
+        <Button type="submit">Enviar link</Button>
       </div>
     </form>
   );

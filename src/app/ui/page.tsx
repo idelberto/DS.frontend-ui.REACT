@@ -140,8 +140,8 @@ export default function UiPage() {
               }
               footer={
                 <>
-                  <ModalClose render={<Button variant="destructive" />}>Excluir</ModalClose>
                   <ModalClose render={<Button variant="outline" />}>Cancelar</ModalClose>
+                  <ModalClose render={<Button variant="destructive" />}>Excluir</ModalClose>
                 </>
               }
             >

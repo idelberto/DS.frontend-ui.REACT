@@ -92,8 +92,8 @@ export default function FormsPage() {
             </div>
           </CardBoxBody>
           <CardBoxFooter>
-            <Button type="submit">Salvar</Button>
             <Button variant="outline">Cancelar</Button>
+            <Button type="submit">Salvar</Button>
           </CardBoxFooter>
         </CardBox>
       </SectionMain>

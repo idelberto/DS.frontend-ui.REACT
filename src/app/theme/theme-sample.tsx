@@ -33,7 +33,7 @@ export function ThemeSample() {
         </div>
       </div>
       <div className="flex flex-col gap-1 rounded-2xl bg-sidebar p-3 text-sm text-sidebar-foreground">
-        <span className="relative rounded-lg px-4 py-2.5 font-medium text-brand-muted-foreground before:absolute before:top-1/2 before:-left-3 before:h-7 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-primary">
+        <span className="relative rounded-lg px-4 py-2.5 font-bold text-brand-muted-foreground before:absolute before:top-1/2 before:left-0 before:h-7 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-primary">
           Item ativo do menu
         </span>
         <span className="rounded-lg px-4 py-2.5 font-medium hover:bg-sidebar-accent">

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stat-group",
+  "title": "Stat group",
+  "description": "Os indicadores do painel num card só: o cabeçalho do card-box, com uma ação para o grupo, e os indicadores lado a lado com divisória (um embaixo do outro no celular). Cada indicador tem o nome, o valor, o ícone na cor do tom e um selo opcional, como a tendência.",
+  "registryDependencies": [
+    "@frontend-ui/card-box",
+    "@frontend-ui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/frontend-ui/stat-group/components/stat-group.tsx",
+      "content": "import { cva, type VariantProps } from 'class-variance-authority';\nimport type { ComponentProps, ComponentType, ReactNode } from 'react';\n\nimport { CardBox, CardBoxHeader } from '@/registry/frontend-ui/card-box/components/card-box';\n\ntype StatGroupProps = ComponentProps<typeof CardBoxHeader> & {\n  // Os Stat.\n  children: ReactNode;\n};\n\n// Os indicadores do painel num card só, com o cabeçalho do card-box e uma ação para o grupo (no\n// Admin One são três cards). Lado a lado com divisória a partir de 1024px, um embaixo do outro no\n// celular. A lista <dl> dá ao leitor de tela cada par nome e valor.\nexport function StatGroup({ children, ...header }: StatGroupProps) {\n  return (\n    <CardBox>\n      <CardBoxHeader {...header} />\n      <dl className=\"grid divide-y divide-border lg:auto-cols-fr lg:grid-flow-col lg:divide-x lg:divide-y-0\">\n        {children}\n      </dl>\n    </CardBox>\n  );\n}\n\n// O ícone é status sobre o card: no escuro, o -muted-foreground do tema (a regra do CLAUDE.md).\nconst statIconVariants = cva('size-12', {\n  variants: {\n    tone: {\n      brand: 'text-primary dark:text-brand-muted-foreground',\n      success: 'text-success dark:text-success-muted-foreground',\n      warning: 'text-warning dark:text-warning-muted-foreground',\n      danger: 'text-destructive dark:text-destructive-muted-foreground',\n      info: 'text-info dark:text-info-muted-foreground',\n      neutral: 'text-muted-foreground',\n    },\n  },\n  defaultVariants: {\n    tone: 'neutral',\n  },\n});\n\ninterface StatProps extends VariantProps<typeof statIconVariants> {\n  label: string;\n  // O valor já formatado, como \"R$ 7.770\".\n  value: string;\n  icon: ComponentType<{ className?: string }>;\n  // O selo acima do nome, em geral um PillTag com a tendência.\n  trend?: ReactNode;\n}\n\n// O nome e o valor são o dt e o dd; o selo e o ícone vão em dd próprios, e o do ícone sai da árvore\n// de acessibilidade. A grade põe o selo em cima e o ícone à direita, como no card do Admin One.\n// Entre 1024 e 1279px as três colunas ficam estreitas, e o valor desce a 1.5rem para não quebrar.\nexport function Stat({ label, value, icon: Icon, tone, trend }: StatProps) {\n  return (\n    <div className=\"grid grid-cols-[1fr_auto] content-start items-center gap-x-4 p-6\">\n      <dt className=\"col-start-1 row-start-2 text-lg leading-tight text-muted-foreground\">\n        {label}\n      </dt>\n      <dd className=\"col-start-1 row-start-3 text-3xl leading-tight font-semibold lg:text-2xl xl:text-3xl\">\n        {value}\n      </dd>\n      {trend !== undefined && <dd className=\"col-span-2 row-start-1 mb-3\">{trend}</dd>}\n      <dd aria-hidden=\"true\" className=\"col-start-2 row-span-2 row-start-2\">\n        <Icon className={statIconVariants({ tone })} />\n      </dd>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

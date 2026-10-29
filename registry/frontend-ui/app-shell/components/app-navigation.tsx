@@ -71,7 +71,8 @@ export function AppNavigation({
             </SidebarGroupLabel>
           )}
           <SidebarGroupContent>
-            <SidebarMenu className="gap-1">
+            {/* A linha clara entre os itens e o passo de 49px são os do menu do Admin One. */}
+            <SidebarMenu className="gap-0 *:border-b *:border-sidebar-border/50 *:py-0.5 *:last:border-b-0">
               {group.items.map((item) => (
                 <NavigationEntry
                   key={item.id}

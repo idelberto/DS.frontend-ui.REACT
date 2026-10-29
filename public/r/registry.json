@@ -118,7 +118,7 @@
       "type": "registry:block",
       "title": "App shell",
       "description": "Menu lateral do Admin One sobre o sidebar do shadcn (grupos, ícones, item ativo, item \"Em breve\", menu recolhido e sobreposição no celular) e a barra superior, com espaço para a marca, a unidade e o usuário.",
-      "registryDependencies": ["sidebar", "@frontend-ui/theme"],
+      "registryDependencies": ["sidebar", "@frontend-ui/theme", "@frontend-ui/button"],
       "files": [
         {
           "path": "registry/frontend-ui/app-shell/components/app-shell.tsx",
@@ -130,6 +130,10 @@
         },
         {
           "path": "registry/frontend-ui/app-shell/components/app-sidebar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/frontend-ui/app-shell/components/app-sidebar-close.tsx",
           "type": "registry:component"
         },
         {

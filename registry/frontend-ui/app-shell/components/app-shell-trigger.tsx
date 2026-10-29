@@ -11,7 +11,11 @@ export function AppShellTrigger() {
     isExpanded = openMobile;
   }
 
+  // No celular, o alvo tem 44px, o tamanho do polegar.
   return (
-    <SidebarTrigger aria-expanded={isExpanded} className="size-9 text-foreground [&_svg]:size-5" />
+    <SidebarTrigger
+      aria-expanded={isExpanded}
+      className="size-11 text-foreground md:size-9 [&_svg]:size-5"
+    />
   );
 }

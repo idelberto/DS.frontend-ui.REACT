@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-DS.frontend-ui.REACT: design system dos projetos React pessoais, com o visual do Admin One (JustBoil, MIT) tal como está no Vue do BioStar4Life, distribuído como registry do shadcn. O plano, os lotes e as decisões estão em `docs/SPEC.md`: leia antes de começar um lote. Decisão nova entra na tabela de decisões do SPEC. A Quicksand, que o Vue também carrega, é conferida no lote 0.2 antes de decidir se entra no tema.
+DS.frontend-ui.REACT: design system dos projetos React pessoais, com o visual do Admin One (JustBoil, MIT) tal como está no Vue do BioStar4Life, distribuído como registry do shadcn. O plano, os lotes e as decisões estão em `docs/SPEC.md`: leia antes de começar um lote. Decisão nova entra na tabela de decisões do SPEC. O `docs/TOKENS.md` diz de que classe do Admin One veio cada token.
 
 @AGENTS.md
 
@@ -19,7 +19,7 @@ npm test                      # Vitest
 npm run build                 # export estático em out/
 npm start                     # serve o out/ em http://localhost:3201/DS.frontend-ui.REACT/
 npm run test:e2e              # smoke Playwright no desktop e no celular; precisa do build
-npm run registry:build        # npx shadcn build: registry.json → public/r/*.json
+npm run registry:build        # registry.json → public/r/*.json (shadcn build) e public/tokens.css
 ./scripts/check-consumer.sh   # app Next limpo instala todos os itens do out/ e builda; precisa do build
 ```
 
@@ -29,21 +29,22 @@ O `tsconfig` liga `noUncheckedIndexedAccess` e `exactOptionalPropertyTypes`, e o
 
 O CI (`.github/workflows/ci.yml`) tem quatro jobs: `verify` (lint, testes, build e `public/r` igual ao que o `shadcn build` gera), `e2e`, `consumer` e, no push para o `main`, `deploy` no GitHub Pages.
 
-Notas locais, fora do repositório (que é público): `../LOCAL.md`, com onde ficam os prints de referência (`../referencia/`) e como subir o Vue do BioStar4Life para tirá-los.
+Notas locais, fora do repositório (que é público): `../LOCAL.md`, com onde ficam os prints de referência (`../referencia/`) e como subir o Vue do BioStar4Life para tirá-los. Os prints de cada lote vão para `../evidencias/lote-N.N/`.
 
 ## Arquitetura
 
 - Um único app Next.js tem dois papéis: é a vitrine (páginas em `src/app` que remontam as telas do Vue) e gera o registry. Sai em export estático (`output: 'export'`) para o GitHub Pages, em `idelberto.github.io/DS.frontend-ui.REACT`. O `basePath` vem de `src/lib/base-path.ts` e vale também no `next dev`; imagem e link fora do `next/link` precisam do prefixo. O `next start` não serve export estático: o `npm start` é o `scripts/serve-static.ts`.
 - `registry/frontend-ui/<item>/<tipo>/<arquivo>` guarda o código de cada item, e o `registry.json` os declara. O `<tipo>` (`ui`, `components`, `lib` ou `hooks`) é a pasta onde o arquivo cai no consumidor, e não é enfeite: o CLI reescreve `@/registry/<...>/ui/x` para o alias `ui` do projeto, e o mesmo com `components`, `lib` e `hooks`. É assim que um item importa outro. Componente do shadcn (`sidebar`, `button`) entra em `src/components/ui` pelo CLI, e o item o importa por `@/components/ui/<nome>` e o lista em `registryDependencies`.
 - A vitrine importa os itens direto de `@/registry/...` (alias à parte no `tsconfig`). O teste de um item fica ao lado dele, fora do `registry.json`, e por isso não é publicado.
-- O `npm run registry:build` gera os `public/r/<item>.json`, que vão versionados: ao mudar um item, rode-o e commite os JSON junto. O CI falha se o build gerar diferença.
+- O `npm run registry:build` gera os `public/r/<item>.json` e o `public/tokens.css`, que vão versionados: ao mudar um item, rode-o e commite o que mudou junto. O CI falha se o build gerar diferença.
 - O consumidor declara `"@frontend-ui": "https://idelberto.github.io/DS.frontend-ui.REACT/r/{name}.json"` em `registries` no `components.json` e instala com `npx shadcn@4.23.0 add @frontend-ui/<item>`. O código é copiado para o projeto, que pode ajustá-lo; atualizar é rodar o `add` de novo e revisar o diff.
-- `public/tokens.css` traz as variáveis do tema para projeto sem shadcn (o Vue do jeitoagape recebe só isso).
+- Os valores do tema vivem só no item `theme` do `registry.json`. O `scripts/build-tokens.ts` gera dele o `public/tokens.css`, para projeto sem shadcn (o Vue do jeitoagape recebe só isso), e o `globals.css` da vitrine importa esse arquivo: a vitrine mostra o que o consumidor instala.
+- O `init` do shadcn deixa no consumidor um `.dark` com os próprios cinzas, e o que o tema não sobrescreve fica com eles no escuro. Por isso o `.dark` do tema repete toda variável do claro, exceto `brand`, `brand-foreground` e `radius` (`test/theme.test.ts`). O CLI também copia para o `@theme inline` do consumidor as variáveis cujo valor é `var(...)`, como `--primary: var(--primary)`: é inofensivo, porque o `:root` sem camada vence.
 - `LICENSE` (MIT) e `NOTICE`, com o copyright da JustBoil, são exigidos pela licença do Admin One.
 
 ## Regras do design system
 
-- Sem cor de produto: a cor e o logo são de cada projeto, pelo `--brand` e seus derivados no item `theme`. Os componentes usam só tokens semânticos (`bg-primary`, `bg-card`, `text-muted-foreground`), nunca cor crua como `bg-purple-600`.
+- Sem cor de produto: a cor e o logo são de cada projeto, pelo `--brand` e seus derivados no item `theme`. Os componentes usam só tokens semânticos (`bg-primary`, `bg-card`, `text-muted-foreground`), nunca cor crua como `bg-purple-600`. Os derivados da marca viram utilitários: `bg-brand-muted`, `text-brand-muted-foreground`.
 - O tema não carrega fonte: ele usa a variável `--font-sans`, e o projeto carrega a Nunito (`next/font` no Next).
 - O comportamento (teclado, foco, leitor de tela) vem do Base UI; o design system cuida da aparência e da composição. Monte sobre os primitivos do shadcn com Base UI em vez de reimplementá-los.
 - Um componente entra quando um projeto precisa dele, e não porque o Admin One tem.

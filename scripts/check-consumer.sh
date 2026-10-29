@@ -36,5 +36,8 @@ console.log(require('$ROOT_DIR/registry.json').items.map((item) => '@frontend-ui
 # shellcheck disable=SC2086 # um argumento por item
 npx "$SHADCN" add $ITEMS --yes --overwrite
 
+CSS_PATH="$(node -e "console.log(require('./components.json').tailwind.css)")"
+grep -- '--brand' "$CSS_PATH"
+
 npx tsc --noEmit
 npm run build

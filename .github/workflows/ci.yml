@@ -27,11 +27,11 @@ jobs:
         run: npm test
       - name: Build
         run: npm run build
-      - name: Registry atualizado (npx shadcn build sem diferença em public/r)
+      - name: Registry e tokens.css atualizados (sem diferença depois do registry:build)
         run: |
           npm run registry:build
-          git add --intent-to-add public/r
-          git diff --exit-code -- public/r
+          git add --intent-to-add public/r public/tokens.css
+          git diff --exit-code -- public/r public/tokens.css
 
   e2e:
     runs-on: ubuntu-latest

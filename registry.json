@@ -4,16 +4,81 @@
   "homepage": "https://idelberto.github.io/DS.frontend-ui.REACT",
   "items": [
     {
-      "name": "hello-world",
-      "type": "registry:component",
-      "title": "Hello world",
-      "description": "Item de teste: confirma que o projeto instala do registry.",
-      "files": [
-        {
-          "path": "registry/frontend-ui/hello-world/components/hello-world.tsx",
-          "type": "registry:component"
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Tema",
+      "description": "Cores do claro e do escuro do Admin One, a cor da marca (--brand) e seus derivados, e o raio. A fonte é a --font-sans que o projeto carrega.",
+      "cssVars": {
+        "theme": {
+          "color-brand": "var(--brand)",
+          "color-brand-foreground": "var(--brand-foreground)",
+          "color-brand-muted": "var(--brand-muted)",
+          "color-brand-muted-foreground": "var(--brand-muted-foreground)"
+        },
+        "light": {
+          "brand": "oklch(0.546 0.245 262.881)",
+          "brand-foreground": "oklch(1 0 0)",
+          "brand-muted": "color-mix(in oklch, var(--brand) 8%, white)",
+          "brand-muted-foreground": "var(--brand)",
+          "background": "oklch(0.985 0.002 247.839)",
+          "foreground": "oklch(0.21 0.034 264.665)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.21 0.034 264.665)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.21 0.034 264.665)",
+          "primary": "var(--brand)",
+          "primary-foreground": "var(--brand-foreground)",
+          "secondary": "oklch(0.967 0.003 264.542)",
+          "secondary-foreground": "oklch(0.21 0.034 264.665)",
+          "muted": "oklch(0.967 0.003 264.542)",
+          "muted-foreground": "oklch(0.551 0.027 264.364)",
+          "accent": "oklch(0.967 0.003 264.542)",
+          "accent-foreground": "oklch(0.21 0.034 264.665)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.967 0.003 264.542)",
+          "input": "oklch(0.373 0.034 259.733)",
+          "ring": "var(--brand)",
+          "radius": "0.5rem",
+          "sidebar": "oklch(0.985 0.002 247.839)",
+          "sidebar-foreground": "oklch(0.373 0.034 259.733)",
+          "sidebar-primary": "var(--brand)",
+          "sidebar-primary-foreground": "var(--brand-foreground)",
+          "sidebar-accent": "oklch(0.967 0.003 264.542)",
+          "sidebar-accent-foreground": "oklch(0.21 0.034 264.665)",
+          "sidebar-border": "oklch(0.928 0.006 264.531)",
+          "sidebar-ring": "var(--brand)"
+        },
+        "dark": {
+          "brand-muted": "color-mix(in oklch, var(--brand) 20%, transparent)",
+          "brand-muted-foreground": "color-mix(in oklch, var(--brand) 60%, white)",
+          "background": "oklch(0.279 0.041 260.031)",
+          "foreground": "oklch(0.968 0.007 247.896)",
+          "card": "oklch(0.229 0.042 264.04)",
+          "card-foreground": "oklch(0.968 0.007 247.896)",
+          "popover": "oklch(0.208 0.042 265.755)",
+          "popover-foreground": "oklch(0.968 0.007 247.896)",
+          "primary": "var(--brand)",
+          "primary-foreground": "var(--brand-foreground)",
+          "secondary": "oklch(0.208 0.042 265.755)",
+          "secondary-foreground": "oklch(0.968 0.007 247.896)",
+          "muted": "oklch(0.372 0.044 257.287)",
+          "muted-foreground": "oklch(0.704 0.04 256.788)",
+          "accent": "oklch(0.372 0.044 257.287)",
+          "accent-foreground": "oklch(0.968 0.007 247.896)",
+          "destructive": "oklch(0.637 0.237 25.331)",
+          "border": "oklch(0.372 0.044 257.287)",
+          "input": "oklch(0.373 0.034 259.733)",
+          "ring": "var(--brand)",
+          "sidebar": "oklch(0.208 0.042 265.755)",
+          "sidebar-foreground": "oklch(0.869 0.022 252.894)",
+          "sidebar-primary": "var(--brand)",
+          "sidebar-primary-foreground": "var(--brand-foreground)",
+          "sidebar-accent": "oklch(0.279 0.041 260.031)",
+          "sidebar-accent-foreground": "oklch(1 0 0)",
+          "sidebar-border": "oklch(0.279 0.041 260.031)",
+          "sidebar-ring": "var(--brand)"
         }
-      ]
+      }
     }
   ]
 }

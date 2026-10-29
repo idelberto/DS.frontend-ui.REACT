@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from 'react';
 
+// Toda marca precisa de 4,5:1 com o texto branco (docs/TOKENS.md): por isso o verde e o laranja
+// são os -700, e não os -600.
 export const BRAND_PRESETS = [
   { name: 'Azul do Admin One', value: 'oklch(0.546 0.245 262.881)' },
   { name: 'Roxo do BioStar4Life', value: 'oklch(0.558 0.288 302.321)' },
-  { name: 'Verde', value: 'oklch(0.596 0.145 163.225)' },
-  { name: 'Laranja', value: 'oklch(0.646 0.222 41.116)' },
+  { name: 'Verde', value: 'oklch(0.508 0.118 165.612)' },
+  { name: 'Laranja', value: 'oklch(0.553 0.195 38.402)' },
 ] as const;
 
 const DEFAULT_BRAND = BRAND_PRESETS[0].value;

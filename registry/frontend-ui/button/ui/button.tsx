@@ -9,7 +9,7 @@ const DARKER_ON_HOVER = 'hover:brightness-90';
 // Mantém as variantes e os tamanhos do button do shadcn: o sidebar, o sheet e os outros componentes
 // do shadcn usam esses nomes.
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 border font-medium whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-70 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "inline-flex shrink-0 items-center justify-center gap-2 border font-medium whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-3 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-70 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {

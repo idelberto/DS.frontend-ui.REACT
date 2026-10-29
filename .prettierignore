@@ -2,3 +2,5 @@ package-lock.json
 docs/
 public/r/
 public/tokens.css
+.claude/
+.impeccable/

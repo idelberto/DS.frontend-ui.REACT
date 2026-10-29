@@ -24,10 +24,11 @@ Componente novo usa o token, e não a classe da coluna da esquerda. Se o Admin O
 | Texto do item do menu (`.aside-menu-item`) | `text-gray-700` | `text-slate-300` | `sidebar-foreground` |
 | Hover do item do menu | `bg-gray-100/80` | `bg-slate-800` | `sidebar-accent` |
 | Borda do menu | `border-gray-200/80` | `border-slate-800/80` | `sidebar-border` |
-| Botão, selo e aviso `success` | `emerald-600` (botão), `emerald-500` (selo, aviso) | `emerald-500` | `success` (no claro, o `-600` do botão para os três) |
-| Botão, selo e aviso `warning` | `yellow-600`, `yellow-500` | `yellow-500` | `warning` |
+| Botão, selo e aviso `success` | `emerald-600` (botão), `emerald-500` (selo, aviso) | `emerald-500` | `success` (no claro, o `emerald-700` para os três: um passo acima do botão, para o branco passar no AA) |
+| Botão, selo e aviso `warning` | `yellow-600`, `yellow-500` | `yellow-500` | `warning` (no claro, o `yellow-700`, pelo mesmo motivo) |
 | Botão, selo e aviso `info` | `blue-600`, `blue-500` | `blue-500` | `info` |
 | Texto sobre as cores de status | `text-white` | `text-white` | `success-foreground`, `warning-foreground`, `info-foreground` e `destructive-foreground` |
+| Texto do selo suave de status (o tom a 15% no fundo) | a cor do status | a cor do status | `success-muted-foreground`, `warning-muted-foreground`, `destructive-muted-foreground` e `info-muted-foreground`: no claro, o `-800` do sucesso e do alerta e o `-700` do perigo e da informação; no escuro, os `-400`. Não existe no Admin One, onde o texto na própria cor reprova no AA |
 | Item ativo do menu, versão no rodapé | `bg-purple-50`, `text-purple-600` | `bg-purple-900/20`, `text-purple-400` | `brand-muted` e `brand-muted-foreground` |
 
 ## Marca
@@ -49,6 +50,10 @@ O padrão do tema é o `blue-600`, o azul do Admin One original. Os derivados ac
 - `brand-foreground` é o texto sobre a marca: branco. Troque junto se a marca for clara.
 - `brand-muted` é a marca a 8% sobre o branco no claro e a 20% transparente no escuro (o `purple-50` e o `purple-900/20`).
 - `brand-muted-foreground` é a marca no claro e a marca a 60% com branco no escuro (o `purple-400`).
+
+A marca precisa de 4,5:1 com o `--brand-foreground`, o mínimo do WCAG AA para texto: o botão, o selo cheio e o link usam o par. O azul do Admin One (5,25:1) e o roxo do BioStar4Life (5,54:1) passam com o branco. Num verde ou num laranja, só o `-700` passa: o `-600` fica em 3,6:1. Uma marca clara precisa de `--brand-foreground` escuro.
+
+No tema padrão, o `info` é o mesmo azul da marca, e por isso o selo de informação e o da marca saem iguais. Eles só se distinguem quando o projeto declara a sua marca.
 
 O degradê do `guest-layout` (o `purple-400 → pink-500 → red-500` do Admin One) sai da marca: a marca mais clara no começo e com o matiz girado 60° no fim, pela cor relativa do CSS (`oklch(from var(--brand) ...)`, Chrome 119, Safari 18 e Firefox 128 em diante). No escuro, os cinzas do tema (`muted`, `sidebar` e `background`, o `slate-700 → slate-900 → slate-800`).
 

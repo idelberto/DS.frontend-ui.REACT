@@ -18,6 +18,32 @@ describe('NotificationBar', () => {
     expect(screen.queryByText('Paciente salvo.')).toBeNull();
   });
 
+  it('moves the focus to the next control when it closes', async () => {
+    render(
+      <>
+        <NotificationBar tone="success">Paciente salvo.</NotificationBar>
+        <button type="button">Novo paciente</button>
+      </>,
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: 'Fechar aviso' }));
+
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'Novo paciente' }));
+  });
+
+  it('moves the focus back when it is the last control of the page', async () => {
+    render(
+      <>
+        <button type="button">Voltar</button>
+        <NotificationBar tone="success">Paciente salvo.</NotificationBar>
+      </>,
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: 'Fechar aviso' }));
+
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'Voltar' }));
+  });
+
   it('shows the action in place of the close button', () => {
     render(
       <NotificationBar tone="info" action={<button type="button">Ver novidades</button>}>

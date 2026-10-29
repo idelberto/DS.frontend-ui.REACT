@@ -10,27 +10,24 @@ import { FooterBar } from '@/registry/frontend-ui/footer-bar/components/footer-b
 import { version } from '../../package.json';
 import { ShowcaseNavigation } from './showcase-navigation';
 
+// A unidade vai na segunda linha do nome, no lugar do slogan: num bloco à parte, ela chamava mais
+// atenção que a marca.
 function ShowcaseBrand() {
   return (
-    <>
-      <div className="flex items-center gap-3">
-        <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg">
-          <Gem className="size-5" />
-        </span>
-        <span className="flex min-w-0 flex-col group-data-[collapsible=icon]:hidden">
-          <span className="truncate text-base leading-tight font-semibold">frontend-ui</span>
-          <span className="truncate text-xs leading-tight text-muted-foreground">
-            Vitrine do design system
+    <div className="flex items-center gap-3">
+      <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg">
+        <Gem className="size-5" />
+      </span>
+      <span className="flex min-w-0 flex-col gap-0.5 group-data-[collapsible=icon]:hidden">
+        <span className="truncate text-base leading-tight font-semibold">frontend-ui</span>
+        <span className="flex min-w-0 items-center gap-1 text-xs leading-tight text-muted-foreground">
+          <MapPin className="size-3 shrink-0" />
+          <span className="truncate">
+            Unidade <strong className="font-semibold text-sidebar-foreground">Centro</strong>
           </span>
         </span>
-      </div>
-      <p className="flex items-center gap-2 rounded-lg bg-sidebar-accent px-3 py-2 text-xs group-data-[collapsible=icon]:hidden">
-        <MapPin className="size-4 shrink-0" />
-        <span className="truncate">
-          Unidade <strong className="font-semibold">Centro</strong>
-        </span>
-      </p>
-    </>
+      </span>
+    </div>
   );
 }
 

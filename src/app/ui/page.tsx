@@ -6,6 +6,7 @@ import {
   Plus,
   Trash2,
   TriangleAlert,
+  X,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -135,13 +136,20 @@ export default function UiPage() {
               description="Ana Carolina Silva Santos sai da lista de pacientes."
               trigger={
                 <Button variant="destructive" className="self-start">
+                  <Trash2 />
                   Excluir paciente
                 </Button>
               }
               footer={
                 <>
-                  <ModalClose render={<Button variant="destructive" />}>Excluir</ModalClose>
-                  <ModalClose render={<Button variant="outline" />}>Cancelar</ModalClose>
+                  <ModalClose render={<Button variant="outline" />}>
+                    <X />
+                    Cancelar
+                  </ModalClose>
+                  <ModalClose render={<Button variant="destructive" />}>
+                    <Trash2 />
+                    Excluir
+                  </ModalClose>
                 </>
               }
             >

@@ -1,6 +1,6 @@
 'use client';
 
-import { Trash2 } from 'lucide-react';
+import { Trash2, X } from 'lucide-react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
@@ -74,35 +74,43 @@ function SelectionBar() {
   return (
     <div className="flex flex-wrap items-center gap-3 border-b px-3 py-3 lg:px-6">
       <span className="font-semibold">{selectionLabel(selectedIds.length)}</span>
-      <Modal
-        title="Excluir pacientes?"
-        description={bulkDeleteDescription(selectedIds.length)}
-        trigger={
-          <Button variant="destructive" size="sm" shape="pill">
-            <Trash2 />
-            Excluir selecionados
-          </Button>
-        }
-        footer={
-          <>
-            <ModalClose
-              render={<Button variant="destructive" />}
-              onClick={() => {
-                clearSelection();
-                toastManager.add({ title: DEMO_DELETE_NOTICE, type: 'info' });
-              }}
-            >
-              Excluir
-            </ModalClose>
-            <ModalClose render={<Button variant="outline" />}>Cancelar</ModalClose>
-          </>
-        }
-      >
-        <p className="text-muted-foreground">{KEPT_HISTORY}</p>
-      </Modal>
-      <Button variant="ghost" size="sm" onClick={clearSelection}>
-        Limpar seleção
-      </Button>
+      {/* As ações à direita, com a principal por último, na ponta. */}
+      <div className="ml-auto flex flex-wrap items-center justify-end gap-3">
+        <Button variant="outline" size="sm" shape="pill" onClick={clearSelection}>
+          <X />
+          Limpar seleção
+        </Button>
+        <Modal
+          title="Excluir pacientes?"
+          description={bulkDeleteDescription(selectedIds.length)}
+          trigger={
+            <Button variant="destructive" size="sm" shape="pill">
+              <Trash2 />
+              Excluir selecionados
+            </Button>
+          }
+          footer={
+            <>
+              <ModalClose render={<Button variant="outline" />}>
+                <X />
+                Cancelar
+              </ModalClose>
+              <ModalClose
+                render={<Button variant="destructive" />}
+                onClick={() => {
+                  clearSelection();
+                  toastManager.add({ title: DEMO_DELETE_NOTICE, type: 'info' });
+                }}
+              >
+                <Trash2 />
+                Excluir
+              </ModalClose>
+            </>
+          }
+        >
+          <p className="text-muted-foreground">{KEPT_HISTORY}</p>
+        </Modal>
+      </div>
     </div>
   );
 }
@@ -121,15 +129,19 @@ function DeletePatientButton({ patient }: { patient: Patient }) {
       }
       footer={
         <>
+          <ModalClose render={<Button variant="outline" />}>
+            <X />
+            Cancelar
+          </ModalClose>
           <ModalClose
             render={<Button variant="destructive" />}
             onClick={() => {
               toastManager.add({ title: DEMO_DELETE_NOTICE, type: 'info' });
             }}
           >
+            <Trash2 />
             Excluir
           </ModalClose>
-          <ModalClose render={<Button variant="outline" />}>Cancelar</ModalClose>
         </>
       }
     >

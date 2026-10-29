@@ -1,4 +1,4 @@
-import { Mail, Phone, SquarePen, User } from 'lucide-react';
+import { Check, Mail, Phone, SquarePen, User, X } from 'lucide-react';
 import type { Metadata } from 'next';
 
 import { ShowcaseShell } from '@/components/showcase-shell';
@@ -92,8 +92,14 @@ export default function FormsPage() {
             </div>
           </CardBoxBody>
           <CardBoxFooter>
-            <Button type="submit">Salvar</Button>
-            <Button variant="outline">Cancelar</Button>
+            <Button variant="outline">
+              <X />
+              Cancelar
+            </Button>
+            <Button type="submit">
+              <Check />
+              Salvar
+            </Button>
           </CardBoxFooter>
         </CardBox>
       </SectionMain>

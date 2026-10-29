@@ -13,7 +13,8 @@ interface ModalProps {
   children?: ReactNode;
   // O botão que abre o modal. Sem ele, o modal é controlado pelo open e pelo onOpenChange.
   trigger?: ReactElement;
-  // Os botões do rodapé. O de cancelar é um ModalClose.
+  // Os botões do rodapé, à direita e com 8rem no mínimo cada: o de cancelar (um ModalClose) primeiro
+  // e o principal por último, na ponta.
   footer?: ReactNode;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
@@ -52,7 +53,9 @@ export function Modal({
               {children}
             </div>
           )}
-          {footer !== undefined && <div className="flex flex-wrap gap-3">{footer}</div>}
+          {footer !== undefined && (
+            <div className="flex flex-wrap justify-end gap-3 *:min-w-32">{footer}</div>
+          )}
         </Dialog.Popup>
       </Dialog.Portal>
     </Dialog.Root>

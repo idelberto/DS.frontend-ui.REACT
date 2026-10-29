@@ -232,6 +232,8 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 - **Hover / Focus:** o hover escurece a cor (`brightness-90`), como os -700 do Admin One. O foco mostra um anel de 3px na cor cheia da marca, como o `ring-purple-500` do Admin One (a 50%, o anel ficava em 2,2:1, abaixo do AA). Sobre cor cheia, como no fechar do aviso e do toast, o anel vai na cor do texto.
 - **Variantes:** `secondary` (cinza suave), `contrast` (tinta cheia), as quatro de status, `outline` (contorno da marca, que enche no hover), `ghost` e `link`.
 - **Grupo de ações:** à direita, com o principal por último, na ponta, e a ordem no código igual à da tela: `Cancelar` e depois `Salvar`. O rodapé do `card-box` e do `modal` já alinha assim. O Admin One alinha à esquerda, com o principal primeiro; o estado vazio, o de erro e a página não encontrada seguem no centro.
+- **Tamanho das ações:** no rodapé do card e do modal, o tamanho padrão (2.5rem) com 8rem de largura mínima, que o rodapé já aplica: Cancelar e Salvar saem do mesmo tamanho. Fora do rodapé, como no formulário de visitante, o botão leva o `min-w-32`. Na barra da tabela e no título da seção, o `sm` em pílula.
+- **Ícone das ações:** antes do texto, e sempre o mesmo para a mesma ação, do lucide: Salvar `Check`, Cancelar e Limpar `X`, Excluir `Trash2`, Novo `Plus`, Editar `Pencil`, Entrar `LogIn`, Enviar `Send`, Tentar de novo `RotateCw` e Voltar ao início `House`.
 
 ### Chips
 
@@ -277,7 +279,7 @@ Linhas listradas e bordas entre as colunas no desktop, com o hover em cinza suav
 - **Do** manter o card plano e deixar a sombra para o que flutua.
 - **Do** passar o rótulo (`label`) em toda `TableCell`, para o cartão do celular.
 - **Do** estilizar link como botão com o `buttonVariants`, e não com o `Button` e o `render`.
-- **Do** alinhar os botões de ação à direita, com o principal por último, na ponta.
+- **Do** alinhar os botões de ação à direita, com o principal por último, na ponta, cada um com 8rem no mínimo e o ícone da ação.
 - **Do** parar a transição e o pulso com o `prefers-reduced-motion` (`motion-reduce:transition-none`, `motion-reduce:animate-none`).
 
 ### Don't:

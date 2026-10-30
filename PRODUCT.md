@@ -41,7 +41,7 @@ Fidelidade ao Admin One como está no Vue do BioStar4Life, e não um redesenho, 
 - Item que substitui um componente do shadcn mantém os nomes de variante e tamanho que os outros componentes do shadcn usam.
 - Escolhas registradas: o raio do card é 0.9rem (`rounded-2xl` da escala), e o "selecionar todas" da tabela some no celular, junto com o `thead`.
 - Decisão pendente: a fonte. O Vue carrega a Nunito, mas a tela dele sai na fonte do sistema (`docs/TOKENS.md`).
-- Fora do escopo: Vue e React Native, gráficos, componentes de domínio do Vue e qualquer coisa do DS.orbit-ui da MediQuo.
+- Fora do escopo: Vue e React Native, componentes de domínio do Vue e qualquer coisa do DS.orbit-ui da MediQuo.
 
 ## Brand Commitments
 

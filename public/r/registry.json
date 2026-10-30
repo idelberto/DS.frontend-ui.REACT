@@ -296,7 +296,7 @@
       "name": "stat-group",
       "type": "registry:component",
       "title": "Stat group",
-      "description": "Os indicadores do painel num card só: o cabeçalho do card-box, com uma ação para o grupo, e os indicadores lado a lado com divisória (um embaixo do outro no celular). Cada indicador tem o nome, o valor, o ícone na cor do tom e um selo opcional, como a tendência.",
+      "description": "Os indicadores do painel: o StatGroup, num card só com o cabeçalho do card-box, uma ação para o grupo e os indicadores lado a lado com divisória (um embaixo do outro no celular), e o StatCard, um indicador num card só dele com a ação no canto, como o CardBoxWidget do Admin One. Cada indicador tem o nome, o valor, o ícone na cor do tom e um selo opcional, como a tendência; pode ter uma meta numa barra (o Meter do Base UI), aparecer em esqueleto enquanto o dado chega (loading) e mostrar um traço sem dado no período (value null).",
       "registryDependencies": ["@frontend-ui/card-box", "@frontend-ui/theme"],
       "files": [
         {

@@ -60,7 +60,7 @@ Notas locais, fora do repositório (que é público): `../LOCAL.md`, com onde fi
 - Item que substitui um componente do shadcn (`button`, `input`, `checkbox`, `radio-group`, `switch`, `table`) vai em `registry/frontend-ui/<item>/ui/`, mantém os nomes de variante e tamanho que os outros componentes do shadcn usam, e a vitrine reexporta o item no `src/components/ui/<nome>.tsx`: o `sidebar` da vitrine usa o mesmo `button` que o do consumidor.
 - Os componentes do shadcn em `src/components/ui` entram pelo CLI. O que não passa no lint strict recebe só o ajuste que o lint pede, e o texto de leitor de tela vai para o português, como no BioStar4Life (`sidebar`, `sheet` e `use-mobile` vieram de lá). Com `tooltip`, o `SidebarMenuButton` vira `TooltipTrigger`, que não repassa o `disabled`: item desabilitado vai sem tooltip.
 - A referência visual é o `PTL.BioStar4Life.VUE` (só leitura) e os prints dele. A partir do lote 0.2, o `docs/TOKENS.md` mapeia as classes do Admin One para os tokens.
-- Fora do escopo: Vue e React Native, gráficos, componentes de domínio do Vue (`TablePatients`, `CardBoxAppointment`, `TrialBanner` e os logos) e qualquer coisa do DS.orbit-ui da MediQuo, que é da empresa.
+- Fora do escopo: Vue e React Native, componentes de domínio do Vue (`TablePatients`, `CardBoxAppointment`, `TrialBanner` e os logos) e qualquer coisa do DS.orbit-ui da MediQuo, que é da empresa.
 
 ## Relação com o BioStar4Life
 

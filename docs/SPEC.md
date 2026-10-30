@@ -23,6 +23,8 @@ Design system dos meus projetos React: o visual do Admin One, o template do Vue 
 | Unidade no menu | Na segunda linha do nome da marca, no lugar do slogan, sem fundo. O bloco cinza abaixo da marca chamava mais atenção que ela (29/10) |
 | Botões de ação | À direita, com o principal por último, na ponta: no rodapé do card e do modal, no formulário de visitante e na barra da seleção. O Admin One os põe à esquerda, com o principal primeiro: desvio pedido. Só o que é centrado (estado vazio, erro e página não encontrada) segue no centro (29/10) |
 | Tamanho e ícone dos botões de ação | Cada botão de ação tem 8rem no mínimo, para Cancelar e Salvar saírem do mesmo tamanho, e o ícone da ação antes do texto, sempre o mesmo para a mesma ação (a tabela do `DESIGN.md`). O Admin One não tem ícone nesses botões (29/10) |
+| Dashboards e indicadores | O padrão de painel entra no design system com dados genéricos, a pedido, sem esperar um projeto que o use: é exceção à regra de entrada. São quatro lotes, de 0.13 a 0.16: indicadores, gráficos, listas do painel e uma página modelo. Os gráficos saem do fora do escopo (29/10) |
+| Indicador solto e meta | O `StatCard` segue o `CardBoxWidget` do Admin One: o selo em cima, a ação no canto e o ícone grande à direita. A meta é uma barra abaixo do valor (o `Meter` do Base UI), com o percentual e a meta nas pontas. As duas foram escolhidas entre três variantes cada (29/10) |
 
 No projeto que consome:
 
@@ -68,6 +70,10 @@ Um branch e um PR por lote. Ao fim de cada um, paro com a evidência e espero o 
 10. **0.10 Item ativo:** a barra volta para o item, e o texto fica em negrito.
 11. **0.11 Menu:** o item ativo numa faixa cinza, sem barra; a unidade na segunda linha da marca, na vitrine; e o "Sair" alinhado com os ícones do menu.
 12. **0.12 Botões de ação:** o rodapé do `card-box` e do `modal` alinha os botões à direita, com o principal por último, e dá 8rem no mínimo a cada um; os botões de ação ganham o ícone da ação, e a vitrine e o `error-state` seguem o padrão.
+13. **0.13 Indicadores:** no `stat-group`, o `StatCard` (o indicador num card só dele), a meta numa barra, o esqueleto enquanto o dado chega e o traço sem dado no período.
+14. **0.14 Gráficos:** linha, barra e rosca com o `chart` do shadcn (Recharts) e as cores `--chart-1` a `--chart-5` no tema, validadas no claro e no escuro.
+15. **0.15 Listas do painel:** a lista de movimentos do Admin One (`CardBoxTransaction`), com ícone, descrição, valor e data.
+16. **0.16 Página modelo:** a página Dashboard na vitrine, com filtro de período, indicadores, gráfico e listas, e a composição descrita no `DESIGN.md`.
 
 Os lotes 0.4 a 0.6 seguem a ordem em que o BioStar4Life vai precisar deles: a Fase 1 começa por pacientes, com formulário e lista.
 
@@ -96,7 +102,6 @@ Os lotes 0.4 a 0.6 seguem a ordem em que o BioStar4Life vai precisar deles: a Fa
 ## Fora do escopo
 
 - Componentes em Vue e em React Native.
-- Gráficos.
 - Componentes de domínio do Vue: `TablePatients`, `CardBoxAppointment`, `TrialBanner` e os logos.
 - Levar o design system para o fairygodmother, o claudeti ou o frwk/puc: cada um é uma decisão separada, depois do BioStar4Life.
 - Qualquer coisa do DS.orbit-ui da mediquo, que é da empresa.

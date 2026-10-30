@@ -253,6 +253,10 @@ A base é `--radius: 0.5rem`, e o shadcn deriva a escala dela.
 - **Composição:** o `StatGroup`, um card só com o cabeçalho do `CardBox` (título, ícone e uma ação para o grupo), no lugar dos três cards do Admin One.
 - **Indicador** (`Stat`): o selo de tendência em cima, o nome em cinza de apoio (1.125rem), o valor grande (1.875rem, 600) e o ícone de 3rem à direita, na cor do tom.
 - **Divisória:** a linha cinza-suave entre os indicadores, lado a lado a partir de 1024px e um embaixo do outro no celular.
+- **Indicador solto** (`StatCard`): o `CardBoxWidget` do Admin One, um indicador num card só dele, com a ação (a engrenagem) no canto de cima, na altura do selo. Numa grade de três a partir de 1024px.
+- **Meta:** uma barra de 0.5rem abaixo do valor, na marca sobre o cinza-suave (no escuro, na marca clara, para a barra passar de 3:1 contra o trilho), com o percentual em negrito à esquerda ("81% da meta") e a meta à direita ("Meta R$ 60.000"). Acima da meta, a barra fica cheia e o texto mostra o valor real.
+- **Carregando:** o esqueleto no lugar do selo, do nome, do valor e do ícone, no cinza de apoio a 15%, com o pulso parado pelo `prefers-reduced-motion`.
+- **Sem dado:** um traço no lugar do valor, "Sem dados no período" abaixo e o ícone apagado; sem selo nem meta.
 
 ### Inputs / Fields
 
